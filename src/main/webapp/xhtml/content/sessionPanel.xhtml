@@ -1,0 +1,78 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:sec="http://alvsanand.appspot.com/security/facelets/tags"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+	<h3>#{bundle_general['sessionPanel.main']}</h3>
+	<div class="content">
+		<sec:ifAnyGranted roles="ROLE_DEVELOPER,ROLE_ADMIN,ROLE_PUBLISHER_USER,ROLE_GENERIC_USER">
+			<h:panelGrid columns="2" columnClasses="sessionContent">
+				<h:outputLabel>
+	            	<strong>#{bundle_general['sessionPanel.user']}:</strong>
+	            </h:outputLabel>
+				<h:outputLabel value="#{sessionScope.user.loginName}"/>
+			</h:panelGrid>
+			<h:form prependId="false">
+			<h:panelGrid columns="1" columnClasses="sessionContent">				
+				<h:link outcome="pretty:modifyPersonalData" value="#{bundle_general['sessionPanel.modifyPersonalData']}" />
+				<p:commandButton ajax="false" action="#{loginBean.logout}" value="#{bundle_general['sessionPanel.logout']}" 
+					rendered="#{!sessionScope.user.googleAcount}"/>		
+				<h:outputLink value="#{loginBean.logoutGoogleSSOURL}" rendered="#{sessionScope.user.googleAcount}" 
+					class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+					<span class="ui-button-text">#{bundle_general['sessionPanel.logout']}</span>
+				</h:outputLink>		
+			</h:panelGrid>
+			</h:form>
+		</sec:ifAnyGranted>
+		<sec:ifNotGranted roles="ROLE_DEVELOPER,ROLE_ADMIN,ROLE_PUBLISHER_USER,ROLE_GENERIC_USER">			
+				<h:form prependId="false">
+					<h:panelGrid columns="2" columnClasses="sessionContent">
+						<h:outputLabel>
+			            	<strong>#{bundle_general['sessionPanel.username']}:</strong>
+			            </h:outputLabel>
+						<h:inputText id="username" value="#{loginBean.username}" size="10" maxlength="32" required="true"
+								requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+								validatorMessage="#{bundle_error['error.form.validation.minLength.5']}">
+								<f:validateLength minimum="5" maximum="32" />
+						</h:inputText>
+					</h:panelGrid>
+					<p:message for="username" showDetail="true" />
+					
+					<h:panelGrid columns="2" columnClasses="sessionContent">
+						<h:outputLabel>
+			            	<strong>#{bundle_general['sessionPanel.password']}:</strong>
+			            </h:outputLabel>
+						<h:inputSecret id="password" value="#{loginBean.password}" size="10" maxlength="32" required="true"
+							requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+							validatorMessage="#{bundle_error['error.form.validation.minLength.5']}">
+							<f:validateLength minimum="5" maximum="32" />
+						</h:inputSecret>
+					</h:panelGrid>
+					<p:message for="password" showDetail="true" />
+					<p/>
+					<p:commandButton ajax="false" action="#{loginBean.login}" value="#{bundle_general['sessionPanel.login']}" />
+				</h:form>
+					
+				<h:panelGrid>
+					<h:panelGroup>
+						<h:link outcome="pretty:resetPassword" value="#{bundle_general['sessionPanel.forgetPassword']}"/>
+					</h:panelGroup>
+				</h:panelGrid>
+					
+				<h:panelGrid>
+					<h:panelGroup>
+						#{bundle_general['sessionPanel.registerMessage']}
+					</h:panelGroup>
+					<h:panelGroup>
+						<h:link outcome="pretty:register" value="#{bundle_general['sessionPanel.register']}"/>
+					</h:panelGroup>
+				</h:panelGrid>
+					
+				<h:panelGrid>
+					<h:panelGroup>
+						<h:outputLink value="#{loginBean.loginGoogleSSOURL}">#{bundle_general['sessionPanel.googleAccount']}</h:outputLink>
+					</h:panelGroup>
+				</h:panelGrid>
+		</sec:ifNotGranted>
+	</div>
+</f:view>

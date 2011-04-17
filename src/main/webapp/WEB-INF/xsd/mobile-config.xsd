@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://alvsanand.appspot.com/mobile/config" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mob="http://alvsanand.appspot.com/mobile/config">
+    <xs:element name="mobileConfig" type="mob:mobileConfigType"/>
+    
+    <xs:complexType name="mobileConfigType">
+    	<xs:sequence>
+    		<xs:element name="noMobilePattern" type="mob:noMobilePatternType" minOccurs="1" maxOccurs="1"/>
+    		<xs:element name="defaultURL" type="mob:defaultURLType" minOccurs="1" maxOccurs="1"/>
+    		<xs:element name="excludedResources" type="mob:excludedResourcesType" minOccurs="1" maxOccurs="1"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="excludedResourcesType">
+    	<xs:sequence>
+    		<xs:element name="urlPattern" type="mob:urlPatternType" maxOccurs="unbounded"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="noMobilePatternType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="defaultURLType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="urlPatternType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+</xs:schema>

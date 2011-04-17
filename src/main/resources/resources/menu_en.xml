@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Menu localization</comment>
+	
+	<entry key="menu.main.home">Home</entry>
+	<entry key="menu.main.admin">Admin</entry>
+	<entry key="menu.main.galleryAlbums">Gallery</entry>
+	<entry key="menu.main.search">Search</entry>
+	
+	<entry key="menu.date.title">By date</entry>
+	<entry key="menu.tags.title">Tags</entry>
+	
+	<entry key="menu.admin.title">Admin Web</entry>
+	<entry key="menu.admin.tags.title">Tags</entry>
+	<entry key="menu.admin.articles.title">Articles</entry>
+	<entry key="menu.admin.image.title">Images</entry>
+	<entry key="menu.admin.users.title">Users</entry>
+	<entry key="menu.admin.eraseCache.title">Erase Cache</entry>
+</properties>

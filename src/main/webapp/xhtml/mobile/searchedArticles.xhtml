@@ -1,0 +1,25 @@
+<i:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"  
+        xmlns:i="http://primefaces.prime.com.tr/touch"
+    	xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html" 
+		xmlns:p="http://primefaces.prime.com.tr/ui"
+	id="searchedArticles" title="#{bundle_mobile['title.searchedArticle']}">
+    <f:facet name="leftNavBar">
+            <i:navBarControl id="backBtn_searchedArticles" label="#{bundle_mobile['title.back']}" type="back"  view="home" effect="slideup"/>
+    </f:facet>
+
+	<h:form prependId="false">
+		<i:tableView id="articlesTable_searchedArticles">
+			<i:rowGroup>
+				<i:rowItem value="#{bundle_mobile['search.noResults']}" rendered="#{searchBean.searchEmpty}"/>
+				
+				<ui:repeat var="article" value="#{searchBean.articles}" varStatus="count">					
+		 			<i:rowItem value="#{article.title}" view="article_search" action="#{homeBean.showArticle}" update="articleInfoTable_search,tagsTable_search,articleTable_search,commentsTable_search">
+		 				<f:setPropertyActionListener target="#{homeBean.name}" value="#{article.name}" />
+		 			</i:rowItem>
+		 		</ui:repeat>
+		 	</i:rowGroup>
+		</i:tableView>
+	</h:form>
+</i:view>

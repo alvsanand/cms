@@ -1,0 +1,147 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+		
+		<ui:param name="pageTitle" value="#{bundle_admin['admin.article.title']}" />
+		<ui:param name="contentHeader" value="#{bundle_admin['admin.article.header']}" />
+		
+		<ui:define name="content">
+			<ui:decorate template="/xhtml/templates/content.xhtml">
+				<!-- header content here  -->
+				<ui:define name="pageName">
+	                #{contentHeader}
+	            </ui:define>
+	
+	   			<script type="text/javascript" src="#{request.contextPath}/js/elrte/separator.js"/>
+				<!-- insert content here -->
+				<ui:define name="pageContent">
+					<f:view contentType="text/html">
+						<h:form id="editArticle">
+							<h:inputHidden value="#{articleBean.idArticle}"/>
+							<h:panelGrid columns="3" width="100%" headerClass="editHeader" columnClasses="editContentLabel,editContent,editContentMessageError">
+			            		<f:facet name="header">
+							    	<h:outputLabel value="#{bundle_admin['admin.article.edit.title']}" rendered="#{! empty articleBean.name}"/>
+							    	<h:outputLabel value="#{bundle_admin['admin.article.create.title']}" rendered="#{empty articleBean.name}"/>
+							  	</f:facet>
+					           
+					            <h:outputLabel>
+					            	<strong>#{bundle_admin['admin.article.param.name']}:</strong>
+					            </h:outputLabel>					            
+					            <h:panelGroup>
+					            	<h:outputLabel value="#{articleBean.name}" rendered="#{! empty articleBean.name}"/>					            
+					            	<h:inputText id="name" value="#{articleBean.name}" required="true" requiredMessage="#{bundle_error['error.form.validation.requiredField']}" rendered="#{empty articleBean.name}"
+										maxlength="20" validator="#{articleBean.validateName}"/>
+								</h:panelGroup>
+								<p:message for="name"/>
+					            
+					            <h:outputLabel rendered="#{! empty articleBean.name}">
+					            	<strong>#{bundle_admin['admin.article.param.versions']}:</strong>
+					            </h:outputLabel>
+					            <h:panelGroup rendered="#{! empty articleBean.name}">
+						            <h:selectOneMenu id="idArticleVersion" value="#{articleBean.idArticleVersion}">  
+										<f:selectItems value="#{articleBean.articleVersions}" />  
+									</h:selectOneMenu>									
+									<p:spacer width="20"/>
+									<p:commandButton ajax="false" id="loadVersionBtn" value="#{bundle_admin['admin.article.loadArticleVersion']}" action="#{articleBean.changeArticleVersion}"/>
+								</h:panelGroup>
+						        <p:message for="idArticleVersion" rendered="#{! empty articleBean.name}"/>
+				          	
+				          		<h:outputLabel>
+					            	<strong>#{bundle_admin['admin.article.param.title']}:</strong>
+					            </h:outputLabel>
+					            <h:inputText id="title" value="#{articleBean.title}" requiredMessage="#{bundle_error['error.form.validation.requiredField']}" required="true"/>
+					          	<p:message for="title"/>
+				          	</h:panelGrid>
+				         
+							<h:panelGrid columns="2" headerClass="editHeader" columnClasses="editContentLabel,editContent,editContentMessageError"> 	
+				          		<h:outputLabel>
+					            	<strong>#{bundle_admin['admin.article.param.tags']}:</strong>
+					            </h:outputLabel>
+					            <h:panelGroup>
+					          		<p:pickList id="tags" value="#{articleBean.tags}" var="tag" itemLabel="#{tag}" itemValue="#{tag}"/>
+								    <p:message for="tags"/>
+								</h:panelGroup>
+				          	</h:panelGrid>
+					    	
+					    	<h:panelGrid columns="1">
+					        	<p:editor widgetVar="dataEditor" id="data" title="#{bundle_admin['admin.article.data']}" value="#{articleBean.data}" 
+					        	width="727" height="400" toolbar="maxi_witjout_save"/> 
+					        	<p:message for="data"/>
+					        	
+								<h:panelGroup>
+					        		<p:commandButton ajax="false" id="saveBtn" value="#{bundle_admin['admin.save']}" onclick="dataEditor.saveHTML()" action="#{articleBean.saveArticle}"/>
+					       			<p:spacer width="20"/>
+					    			<p:commandButton id="deleteBtn" value="#{bundle_admin['admin.delete']}" action="#{articleBean.deleteArticle}" rendered="#{! empty articleBean.name}"/>
+						       		<p:spacer width="20"/>
+						    		<p:button id="backBtn" value="#{bundle_admin['admin.back']}" outcome="pretty:listArticle"/>
+					        	</h:panelGroup>					        	
+					    	</h:panelGrid>
+						</h:form>
+					</f:view>						
+	    
+					<script type="text/javascript" src="#{request.contextPath}/js/editor/separator.js"/>
+					<script type="text/javascript" src="#{request.contextPath}/js/editor/imageGallery.js"/>
+					<script type="text/javascript">
+					//<![CDATA[
+					  	updatePreviewDiv = function() {
+						  	$j('#previewTitle').empty();
+							$j('#previewTitle').append($j('#editArticle\\:title').val());
+							$j('#previewData').empty();
+							$j('#previewData').append($j(dataEditor.editor.doc.body).html());
+					  	};
+					  	(function($) {
+						  	$.cleditor.defaultOptions.controls = $.cleditor.defaultOptions.controls
+						    	.replace("| cut copy paste pastetext | print source", "");		
+						 })(jQuery);	
+					//]]>
+					</script>
+					<p:lightBox>  
+						<h:outputLink value="#" onclick="updatePreviewDiv()">
+							<h:outputText value="#{bundle_admin['admin.article.preview']}"/>
+						</h:outputLink>
+						
+						<f:facet name="inline">
+				         	<div id="previewDiv" class="post">
+								<div class="header">
+									<h3 id="previewTitle"></h3>
+								</div>
+								<div class="content" id="previewData">
+								</div>
+							</div> 
+						</f:facet>  
+					</p:lightBox>
+				</ui:define>
+			</ui:decorate>
+		</ui:define>
+		<ui:define name="popups">
+			<h:form prependId="false" id="listImages">
+		    	<p:dialog id="imageDialog" header="#{bundle_admin['admin.image.show']}" widgetVar="imageDialog" modal="true" width="650" height="400">  
+			        <p:dataGrid value="#{imageBean.entries}" var="entity" columns="3" rows="12" paginator="true" effect="true"  
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+						rowsPerPageTemplate="9,12,15" paginatorPosition="bottom" id="imageGrid">
+						<p:column>
+							<p:panel header="#{entity.title}" style="text-align:center">
+						 		<h:panelGrid columns="1" style="width:100%; text-align:center;">
+						 			<p:commandLink ajax="true" action="#{imageBean.loadPhotosWithoutView}" update="imageDialog"
+						 				oncomplete="imageDialog.show()" rendered="#{empty imageBean.albumId}">
+						 				<f:setPropertyActionListener target="#{imageBean.albumId}" value="#{entity.id}" />
+										<h:graphicImage style="border: 0px;" value="#{request.contextPath}/themes/default/images/album.jpg"/>
+									</p:commandLink>
+						 			
+								 	<h:graphicImage style="border: 0px;"  value="#{entity.thumbnailUrl}" rendered="#{!empty imageBean.albumId}"
+								 		onclick="selectUrl('#{entity.url}')"/>
+						 			<h:outputText value="#{fn:replace(entity.description, '#Gallery_Album' ,'')}" style="text-align:left"/>			            				
+		            			</h:panelGrid>
+		            		</p:panel>
+						</p:column>
+			    	</p:dataGrid>
+			    	<p:commandButton id="imageBackBtn" ajax="true" action="#{imageBean.loadAlbums}" value="#{bundle_admin['admin.back']}"
+   									update="imageDialog" rendered="#{!empty imageBean.albumId}" oncomplete="imageDialog.show()"/>
+			     </p:dialog>
+			     <p:remoteCommand name="showImageGallery" action="#{imageBean.loadAlbums}" update="imageDialog" oncomplete="imageDialog.show()"/>
+			</h:form>
+		</ui:define>
+</ui:composition>

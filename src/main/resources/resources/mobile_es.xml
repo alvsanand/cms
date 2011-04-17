@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Mobile localization</comment>
+
+	<entry key="title.home">Inicio</entry>
+	<entry key="title.about">Sobre</entry>
+	<entry key="title.searchedArticle">Res. búsqueda</entry>
+	<entry key="title.search">Buscar</entry>
+	<entry key="title.back">Atrás</entry>
+
+	<entry key="home.moreArticles">Más</entry>
+	<entry key="home.lessArticles">Menos</entry>
+
+	<entry key="about.privacy">&#xa9;Todos los derechos reservados.</entry>
+	<entry key="about.designBy"><![CDATA[Diseñado por <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a>]]></entry>
+	<entry key="about.poweredBy">Funcionando gracias a</entry>
+	<entry key="about.appengine">Google App Engine</entry>
+	<entry key="about.jsf">Primefaces - JSF 2.0 </entry>
+	<entry key="about.jpa">Datanucleus - JPA </entry>
+	<entry key="about.title">alvsanand.appspot.com</entry>
+
+	<entry key="search.button">Enviar</entry>
+	<entry key="search.noResults">Sin resultados</entry>
+
+	<entry key="article.by">Creado por</entry>
+</properties>

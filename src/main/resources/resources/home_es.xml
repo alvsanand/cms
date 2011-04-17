@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Home localization</comment>
+
+	<entry key="home.title">Inicio</entry>
+
+	<entry key="home.article.by">Creado por</entry>
+	<entry key="home.article.printerFriendly">Imprimir</entry>
+	<entry key="home.article.comments">Comentarios</entry>
+	<entry key="home.article.readMore">Leer más</entry>
+	<entry key="home.article.mename.title">Enviar a Meneame</entry>
+	<entry key="home.article.mename.button">Meneame</entry>
+	<entry key="home.article.bitacoras.title">Enviar a Bitacoras.com</entry>
+	<entry key="home.article.bitacoras.button">Bitacoras</entry>
+	<entry key="home.article.facebook.title">Compratir en Facebook</entry>
+	<entry key="home.article.facebook.button">Facebook</entry>
+	<entry key="home.article.twitter.title">Twittear esto</entry>
+	<entry key="home.article.twitter.button">Twitter</entry>
+
+
+	<entry key="home.articles.notRegistered"><![CDATA[
+		Para hacer un comentario es necesario que te identifiques. Pulsa <a href="{0}">aqui</a> para logarte.
+	]]>
+	</entry>
+	<entry key="home.articles.addComment">Añadir comentarios</entry>
+	<entry key="home.articles.cancelComment">Cancelar</entry>
+
+	<entry key="home.articles.forwardArticles">Más</entry>
+	<entry key="home.articles.backwardArticles">Menos</entry>
+
+	<entry key="home.comment.by">Comentado por:</entry>
+
+	<entry key="home.rating.rate">Votar</entry>
+
+	<entry key="home.gallery.title">Galería de imágenes</entry>
+	<entry key="home.gallery.slideshow.start">Empezar diapositivas</entry>
+	<entry key="home.gallery.slideshow.stop">Parar diapositivas</entry>
+</properties>

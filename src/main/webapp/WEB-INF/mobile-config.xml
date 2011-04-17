@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mob:mobileConfig xmlns:mob="http://alvsanand.appspot.com/mobile/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://alvsanand.appspot.com/mobile/config xsd/mobile-config.xsd ">
+  <mob:noMobilePattern>((?!mobile).)*</mob:noMobilePattern>
+  <mob:defaultURL>/mobile</mob:defaultURL>
+  
+  <mob:excludedResources>
+    <mob:urlPattern>/javax.faces.resource/.*</mob:urlPattern>
+    <mob:urlPattern>/themes/.*</mob:urlPattern>
+    <mob:urlPattern>/js/.*</mob:urlPattern>
+    <mob:urlPattern>/favicon.ico</mob:urlPattern>
+  </mob:excludedResources>
+</mob:mobileConfig>

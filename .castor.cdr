@@ -1,0 +1,14 @@
+#Mon Oct 04 15:30:01 CEST 2010
+InterceptURL=InterceptURLDescriptor
+HasNoRole=HasNoRoleDescriptor
+HasAnyRoleType=HasAnyRoleTypeDescriptor
+HasAnyRole=HasAnyRoleDescriptor
+HasAllRolesType=HasAllRolesTypeDescriptor
+InterceptURLType=InterceptURLTypeDescriptor
+HasAnyRoleTypeItem=HasAnyRoleTypeItemDescriptor
+HasNoRoleType=HasNoRoleTypeDescriptor
+HasAllRolesTypeItem=HasAllRolesTypeItemDescriptor
+HasNoRoleTypeItem=HasNoRoleTypeItemDescriptor
+SecurityConfig=SecurityConfigDescriptor
+HasAllRoles=HasAllRolesDescriptor
+SecurityConfigType=SecurityConfigTypeDescriptor

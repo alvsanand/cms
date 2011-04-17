@@ -1,0 +1,22 @@
+<i:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"  
+        xmlns:i="http://primefaces.prime.com.tr/touch"
+    	xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html" 
+	id="about" title="#{bundle_mobile['title.about']}">     
+    <f:facet name="leftNavBar">
+            <i:navBarControl id="backBtn_about" label="#{bundle_mobile['title.back']}" type="back" effect="slideup" rendered="#{home}"/>
+    </f:facet>
+	<i:tableView>
+	        <i:rowGroup title="#{bundle_mobile['about.title']}">
+	                <i:rowItem><h:outputLabel escape="false" value="#{bundle_mobile['about.privacy']}"/></i:rowItem>
+	                <i:rowItem><h:outputLabel escape="false" value="#{bundle_mobile['about.designBy']}"/></i:rowItem>
+	                <i:rowItem>
+	                	#{bundle_mobile['about.poweredBy']}
+	                	<img src="#{request.contextPath}/themes/default/images/appengine-silver-120x30.gif" alt="#{bundle_mobile['about.appengine']}" />
+						<img src="#{request.contextPath}/themes/default/images/primefaces_logo.gif" alt="#{bundle_mobile['about.jsf']}" />
+						<img src="#{request.contextPath}/themes/default/images/datanucleus.png" alt="#{bundle_mobile['about.jpa']}" />
+	                </i:rowItem>
+	        </i:rowGroup>		
+	</i:tableView>
+</i:view>

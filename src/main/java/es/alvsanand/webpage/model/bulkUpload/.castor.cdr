@@ -1,0 +1,5 @@
+#Fri Oct 15 13:30:49 CEST 2010
+es.alvsanand.webpage.model.bulkUpload.ArticleBulkUpload=es.alvsanand.webpage.model.bulkUpload.descriptors.ArticleBulkUploadDescriptor
+es.alvsanand.webpage.model.bulkUpload.ArticleBulkUploadType=es.alvsanand.webpage.model.bulkUpload.descriptors.ArticleBulkUploadTypeDescriptor
+es.alvsanand.webpage.model.bulkUpload.Article=es.alvsanand.webpage.model.bulkUpload.descriptors.ArticleDescriptor
+es.alvsanand.webpage.model.bulkUpload.ArticleType=es.alvsanand.webpage.model.bulkUpload.descriptors.ArticleTypeDescriptor

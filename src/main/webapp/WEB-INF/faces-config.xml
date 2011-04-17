@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd" version="2.0">
+	<application>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>es</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>resources.general</base-name>
+			<var>bundle_general</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>resources.home</base-name>
+			<var>bundle_home</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>resources.error</base-name>
+			<var>bundle_error</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>resources.registration</base-name>
+			<var>bundle_registration</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>resources.menu</base-name>
+			<var>bundle_menu</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>resources.admin</base-name>
+			<var>bundle_admin</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>resources.mobile</base-name>
+			<var>bundle_mobile</var>
+		</resource-bundle>
+
+	</application>
+
+	<validator>
+		<validator-id>regExpValidator</validator-id>
+		<validator-class>es.alvsanand.webpage.web.validators.RegExpValidator</validator-class>
+		<property>
+			<property-name>regularExpression</property-name>
+			<property-class>java.lang.String</property-class>
+		</property>
+		<property>
+			<property-name>messageError</property-name>
+			<property-class>java.lang.String</property-class>
+		</property>
+	</validator>
+	
+	<validator>
+	    <validator-id>requiredCheckboxValidator</validator-id>
+	    <validator-class>es.alvsanand.webpage.web.validators.RequiredCheckboxValidator</validator-class>
+	</validator>
+</faces-config>

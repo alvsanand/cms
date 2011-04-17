@@ -1,0 +1,39 @@
+<i:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"  
+        xmlns:i="http://primefaces.prime.com.tr/touch"
+    	xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html" 
+		xmlns:p="http://primefaces.prime.com.tr/ui"
+	id="search" title="#{bundle_mobile['title.search']}">
+    <f:facet name="leftNavBar">
+            <i:navBarControl id="backBtn_search" label="#{bundle_mobile['title.back']}" type="back" effect="slideup"/>
+    </f:facet>
+	
+	<h:form prependId="false">
+		<i:tableView id="searchTable">
+			<i:rowGroup>
+				<i:rowItem>
+					<h:inputText id="query" value="#{searchBean.query}" required="true"
+						requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+						validatorMessage="#{bundle_error['error.form.validation.minLength.3']}"
+						maxlength="40">
+					<f:validateLength minimum="3" maximum="40" />
+					</h:inputText>
+					<br/>
+					<p:message for="query"/>
+				</i:rowItem>
+		 	</i:rowGroup>
+		</i:tableView>
+		<p:commandLink id="searchBtn_search" value="#{bundle_mobile['search.button']}" action="#{searchBean.searchArticlesByQueryNoNiew}"
+			update="articlesTable_searchedArticles" style="margin:0 10px;" styleClass="whiteButton goback" oncomplete="goToSearchedArticles()"/>
+		<script type="text/javascript">
+		//<![CDATA[
+		 	goToSearchedArticles = function() {
+		 		doAfter(500,function() {
+		 			TouchFaces.goTo('searchedArticles', 'slideup');
+				});		 		
+			};
+		//]]>
+		</script>
+	</h:form>
+</i:view>

@@ -1,0 +1,183 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:sec="http://alvsanand.appspot.com/security/facelets/tags"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces">	
+		<ui:param name="pageTitle" value="#{bundle_home['home.title']}" />
+		
+		<ui:define name="content">
+			<div id="article" class="post">
+				<div class="header">
+					<h3>#{homeBean.article.title}</h3>
+					<div class="date">
+						#{bundle_home['home.article.by']}
+						<strong><h:outputText value="#{homeBean.article.user.loginName}"/></strong> - 
+						<h:outputText value="#{homeBean.article.date}">
+							<f:convertDateTime pattern="yyyy/MM/dd" />				
+						</h:outputText>							
+					</div>
+				</div>
+				<div class="tags">
+					<h:panelGrid columns="2" columnClasses="tagCol,rating">
+						<h:panelGroup>
+							<ui:repeat var="tag" value="#{homeBean.article.tags}">
+								<span class="tagLabel">
+									<h:link outcome="pretty:tag" value="#{tag.name}">
+										<f:param name="tagName" value="#{tag.name}" />
+									</h:link>
+								</span>
+							</ui:repeat>
+						</h:panelGroup>
+						
+						<f:view contentType="text/html">
+							<h:form prependId="false">
+								<p:rating stars="5" value="#{homeBean.article.ratingMean}" disabled="#{!homeBean.canRate}" rateListener="#{articleBean.handleRateListener}"/>
+								<p:commandButton id="saveRatingBtn" value="#{bundle_home['home.rating.rate']}" action="#{articleBean.saveRating}" rendered="#{homeBean.canRate}">
+									<f:setPropertyActionListener target="#{articleBean.idArticle}" value="#{homeBean.article.idArticle}" />
+								</p:commandButton>
+							</h:form>
+						</f:view>
+					</h:panelGrid>
+				</div>
+				<div class="content">
+					<h:outputText escape="false" value="#{homeBean.article.dataValue}"/>
+				</div>			
+				<div id="besocial" class="rating">
+					<ul class="left">
+						<li>
+							<a title="#{bundle_home['home.article.mename.title']}" href="http://www.meneame.net/submit.php?url=#{homeBean.articleUrl};title=#{homeBean.encodedArticleTitle}" rel="nofollow" id="besocial-meneame">
+								<span class="besocial-text">#{bundle_home['home.article.mename.button']}</span>
+							</a>
+						</li>
+						<li>
+							<a title="#{bundle_home['home.article.bitacoras.title']}" href="http://bitacoras.com/anotaciones/#{homeBean.articleUrlWithoutProtocol}" rel="nofollow" id="besocial-bitacoras">
+								<span class="besocial-text">#{bundle_home['home.article.bitacoras.button']}</span>
+							</a>
+						</li>
+						<li>
+							<a title="#{bundle_home['home.article.facebook.title']}" href="http://www.facebook.com/sharer.php?u=#{homeBean.articleUrl};t=#{homeBean.encodedArticleTitle};src=sp" rel="nofollow" id="besocial-facebook">
+								<span class="besocial-text">#{bundle_home['home.article.facebook.button']}</span>
+							</a>
+						</li>
+						<li>
+							<a title="#{bundle_home['home.article.twitter.title']}" href="http://twitter.com/home?status=#{homeBean.articleUrl}" rel="nofollow" id="besocial-twitter">
+								<span class="besocial-text">#{bundle_home['home.article.twitter.button']}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="header">
+					<h3>#{bundle_home['home.article.comments']}</h3>
+				</div>
+				<ui:repeat varStatus="count" var="comment" value="#{homeBean.article.comments}">						
+					<div id="comment_#{count.index}" class="comment">
+						<div class="header">
+							<h2>#{comment.title}</h2>
+						</div>
+						<div class="content">
+							<h:panelGrid columns="2" columnClasses="authorComment,data">
+								<h:panelGrid columns="1">
+									<h:outputText value="#{bundle_home['home.comment.by']}"/>
+									<h:panelGroup>
+										<strong><h:outputText value="#{comment.user.loginName}"/></strong>
+									</h:panelGroup>
+									<h:outputText value="#{comment.date}">
+										<f:convertDateTime pattern="yyyy/MM/dd - HH:mm" />				
+									</h:outputText>
+									<h:graphicImage id="avatarImage" url="#{homeBean.avatarImage[comment.user.idUser]}" rendered="#{homeBean.hasAvatarImage[comment.user.idUser]}"/>					
+								</h:panelGrid>
+								<h:outputText escape="false" value="#{comment.dataValue}"/>
+							</h:panelGrid>
+						</div>
+						<sec:ifAnyGranted roles="ROLE_DEVELOPER,ROLE_ADMIN">
+							<div class="DeleteComment">
+								<f:view contentType="text/html">
+									<h:form prependId="false">
+										<p:commandButton ajax="false" action="#{commentBean.deleteComment}" value="#{bundle_admin['admin.delete']}">
+											<f:setPropertyActionListener target="#{commentBean.idArticle}" value="#{comment.idArticle}" />
+											<f:setPropertyActionListener target="#{commentBean.idComment}" value="#{comment.idComment}" />
+										</p:commandButton>
+									</h:form>
+								</f:view>
+							</div>
+						</sec:ifAnyGranted>
+						<sec:ifAnyGranted roles="ROLE_PUBLISHER_USER,ROLE_GENERIC_USER">
+							<h:panelGroup rendered="#{comment.idUser == sessionScope.user.idUser}">
+								<div class="DeleteComment">
+									<f:view contentType="text/html">
+										<h:form prependId="false">
+											<p:commandButton ajax="false" action="#{commentBean.deleteComment}" value="#{bundle_admin['admin.delete']}">
+												<f:setPropertyActionListener target="#{commentBean.idArticle}" value="#{comment.idArticle}" />
+												<f:setPropertyActionListener target="#{commentBean.idComment}" value="#{comment.idComment}" />
+											</p:commandButton>
+										</h:form>
+									</f:view>
+								</div>
+							</h:panelGroup>
+						</sec:ifAnyGranted>
+					</div>
+					<h:panelGroup rendered="#{homeBean.focusComments and count.index == 0}">
+						<script type="text/javascript">
+						//<![CDATA[
+						$j(document).ready(function(){
+							scroll('comment_#{count.index}')
+						});
+						//]]>
+						</script>
+					</h:panelGroup>
+				</ui:repeat>
+				<sec:ifNotGranted roles="ROLE_DEVELOPER,ROLE_ADMIN,ROLE_PUBLISHER_USER,ROLE_GENERIC_USER">
+					<p:fieldset id="NewComment" legend="#{bundle_admin['admin.comment.create.title']}" toggleable="true" collapsed="true">
+				     	<pretty:urlbuffer var="loginURL" mappingId="login"/>
+				     	  
+						<h:outputFormat value="#{bundle_home['home.articles.notRegistered']}" escape="false">
+				        	<f:param value="#{requestScope.loginURL}"/> 
+				        </h:outputFormat>
+					</p:fieldset>
+				</sec:ifNotGranted>
+				<sec:ifAnyGranted roles="ROLE_DEVELOPER,ROLE_ADMIN,ROLE_PUBLISHER_USER,ROLE_GENERIC_USER">
+					<p:fieldset id="NewComment" legend="#{bundle_admin['admin.comment.create.title']}" toggleable="true" collapsed="true">
+						<f:view contentType="text/html">
+							<h:form prependId="false" id="commentForm">
+								<h:panelGrid columns="2">
+					          		<h:outputLabel>
+						            	<strong>#{bundle_admin['admin.comment.title']}:</strong>
+						            </h:outputLabel>
+						            <h:panelGroup>
+							            <h:inputText id="title" value="#{commentBean.title}" requiredMessage="#{bundle_error['error.form.validation.requiredField']}" required="true"/>
+							          	<p:message for="title"/>
+									</h:panelGroup>
+					          	</h:panelGrid>
+						    	
+						    	<h:panelGrid columns="1">
+							    	<p:editor widgetVar="commentEditor" id="data" value="#{commentBean.data}" width="720" height="300"/> 
+							        
+							        <p:message for="data"/>
+							    		
+								    <p:commandButton ajax="false" id="saveBtn" value="#{bundle_admin['admin.save']}" action="#{commentBean.saveComment}">
+			 							<f:setPropertyActionListener target="#{commentBean.idArticle}" value="#{homeBean.article.idArticle}" />
+								    </p:commandButton>
+							    </h:panelGrid>
+								<script type="text/javascript">
+								//<![CDATA[
+								  (function($) {
+								  	$.cleditor.defaultOptions.controls = $.cleditor.defaultOptions.controls
+								    	.replace("| cut copy paste pastetext | print source", "");		
+								  	})(jQuery);				 
+								//]]>
+								</script>
+							</h:form>
+						</f:view>
+					</p:fieldset>
+				</sec:ifAnyGranted>
+				<div class="footer">
+					<ul>
+						<!--<li class="printerfriendly"><a href="#">#{bundle_home['home.article.printerFriendly']}</a></li>-->
+					</ul>
+				</div>
+			</div>
+		</ui:define>
+</ui:composition>

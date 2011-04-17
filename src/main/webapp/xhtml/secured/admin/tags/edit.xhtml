@@ -1,0 +1,54 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+		
+		<ui:param name="pageTitle" value="#{bundle_admin['admin.tag.title']}" />
+		<ui:param name="contentHeader" value="#{bundle_admin['admin.tag.header']}" />
+		
+		<ui:define name="content">
+			<ui:decorate template="/xhtml/templates/content.xhtml">
+				<!-- header content here  -->
+				<ui:define name="pageName">
+	                #{contentHeader}
+	            </ui:define>
+	
+				<!-- insert content here -->
+				<ui:define name="pageContent">
+					<f:view contentType="text/html">
+						<h:form prependId="false">
+							<h:panelGrid columns="3" width="100%" headerClass="editHeader" columnClasses="editContentLabel,editContent,editContentMessageError">
+			            		<f:facet name="header">
+							    	<h:outputLabel value="#{bundle_admin['admin.tag.edit.title']}" rendered="#{! empty tagBean.name}"/>
+							    	<h:outputLabel value="#{bundle_admin['admin.tag.create.title']}" rendered="#{empty tagBean.name}"/>
+							  	</f:facet>
+					           
+					            <h:outputLabel>
+					            	<strong>#{bundle_admin['admin.tag.name']}:</strong>
+					            </h:outputLabel>
+					            <h:outputLabel value="#{tagBean.name}" rendered="#{! empty tagBean.name}"/>					            
+					            <h:inputText id="name" value="#{tagBean.name}" required="true" requiredMessage="#{bundle_error['error.form.validation.requiredField']}" rendered="#{empty tagBean.name}"
+									maxlength="20" validator="#{tagBean.validateName}"/>
+					            <p:message for="name"/>
+					            
+					            <h:outputLabel>
+					            	<strong>#{bundle_admin['admin.tag.description']}:</strong>
+					            </h:outputLabel>
+					            <h:inputText id="description" value="#{tagBean.description}"/>
+					          	<p:message for="description"/>
+				          	</h:panelGrid>
+					    	
+					    	<div class="extraContent">					       						       	
+						       	<p:commandButton id="saveBtn" ajax="false" value="#{bundle_admin['admin.save']}" action="#{tagBean.saveTag}"/>
+						       	<p:spacer width="20"/>
+						    	<p:commandButton id="deleteBtn" ajax="false" value="#{bundle_admin['admin.delete']}" action="#{tagBean.deleteTag}" rendered="#{! empty tagBean.name}"/>
+						       	<p:spacer width="20"/>
+						    	<p:button id="backBtn" value="#{bundle_admin['admin.back']}" outcome="pretty:listTag"/>
+					    	</div>
+						</h:form>
+					</f:view>
+				</ui:define>
+			</ui:decorate>
+		</ui:define>
+</ui:composition>

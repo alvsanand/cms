@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Error localization</comment>
+
+	<entry key="error.title">Error</entry>
+	<entry key="error.header">Error</entry>
+
+	<entry key="error.title.400">Petición errónea</entry>
+	<entry key="error.description.400">La petición contiene una sintaxis errónea o no puede ser realizada.</entry>
+	<entry key="error.title.401">Sin autorización</entry>
+	<entry key="error.description.401">Es ncesearia autorización pero esta ha no es correcta o no ha sido introducida.</entry>
+	<entry key="error.title.403">El acceso ha sido denegado</entry>
+	<entry key="error.description.403">La petición ha sido denegada para el el usuario actual.</entry>
+	<entry key="error.title.404">No encontrado</entry>
+	<entry key="error.description.404">El recurso de la petición no pudo ser encontrado.</entry>
+	<entry key="error.title.405">Método no permitido</entry>
+	<entry key="error.description.405">La petición del recurso ha sido realizada usando un método no soportado.</entry>
+	<entry key="error.title.500">Error interno del servidor</entry>
+	<entry key="error.description.500">El servidor encontró una condición inesperada la cual ha hecho imposible realizar la petición.</entry>
+	<entry key="error.title.501">No implementado</entry>
+	<entry key="error.description.501">El servido no reconoce el método de la petición o le falta la habilidad para realziar la petición.</entry>
+	<entry key="error.title.503">Servicio indisponible</entry>
+	<entry key="error.description.503">El servido está actualmente indisponible (porrque está sobrecargado o caido por tareas de mantenimiento).</entry>
+	<entry key="error.title.unknow">Error inesperado del servidor</entry>
+	<entry key="error.description.unknow">El servido ha lanzado un error inesperado.</entry>
+	<entry key="error.title.usernameNotFound">Usuario no encontrado</entry>
+	<entry key="error.description.usernameNotFound">El usuario con los credenciales introducidos no ha sido encontrado.</entry>
+	<entry key="error.title.usernameNotAccepted">Usuario no aceptado</entry>
+	<entry key="error.description.usernameNotAccepted">El usuario con los credenciales introducidos no ha sido aceptado todavía.</entry>
+	<entry key="error.title.usernameDisabled">Usuario deshabilitado</entry>
+	<entry key="error.description.usernameDisabled">El usuario con los credenciales introducidos está deshabilitado actualmente.</entry>
+
+	<entry key="error.title.accessDenied">Acceso denegado</entry>
+	<entry key="error.description.accessDenied">El acceso ha esta página está denegado.</entry>
+
+	<entry key="error.title.badCredentials">Credenciales erróneos</entry>
+	<entry key="error.description.badCredentials">El nombre o/y la contraseña son incorrectos.</entry>
+
+	<entry key="error.form.validation.requiredField">El campo es requerido</entry>
+	<entry key="error.form.validation.minLength.5">El campo debe de tener una loguitud de al menos 5 caracteres</entry>
+	<entry key="error.form.validation.minLength.3">El campo debe de tener una loguitud de al menos 3 caracteres</entry>
+
+	<entry key="error.form.validation.regularExpresion.email">El campo debe ser un email correcto</entry>
+	
+	<entry key="error.form.validation.privacy">Debes aceptar las condiciones de uso</entry>
+
+	<entry key="error.form.validation.validateArticleName.summary">Nombre incorrecto</entry>
+	<entry key="error.form.validation.validateArticleName.detail">Un artículo ya posee ese nombre</entry>
+
+	<entry key="error.form.validation.loadArticleBulkUpload.unknown.summary">Error inesperado</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.unknown.detail">Se ha producido un error inesperado miestras se cargaban los artículos</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badFile.summary">Fichero incorrecto</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badFile.detail">El fichero XML file que contiene los artículos no está bien formado</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badContent.summary">Artículos incorrectos</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badContent.detail">Los artículos del fichero XML file son incorrectos</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badName.summary">Nombre incorrecto</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badName.detail">El nombre del artículo[{0}] ya está siendo usado </entry>
+
+	<entry key="error.form.validation.validateUserName.summary">Nombre incorrecto</entry>
+	<entry key="error.form.validation.validateUserName.detail">Un usuario ya posee ese nombre</entry>
+
+	<entry key="error.form.validation.validateTagName.summary">Nombre incorrecto</entry>
+	<entry key="error.form.validation.validateTagName.detail">Una etiqueta ya posee ese nombre</entry>
+
+	<entry key="error.form.validation.validateRePassword.summary">Contraseñas incorrectas</entry>
+	<entry key="error.form.validation.validateRePassword.detail">La contraseña y su repetición han de ser iguales</entry>
+
+	<entry key="error.form.validation.validateCaptcha.summary">Palabras incorrectas</entry>
+	<entry key="error.form.validation.validateCaptcha.detail">Las palabras no corresponden con la imagen Captcha</entry>
+
+	<entry key="error.activate.registrationHash.summary">Activación errónea</entry>
+	<entry key="error.activate.registrationHash.detail">El código de activación introducido no es correcto</entry>
+
+	<entry key="error.activate.activated.summary">Activación errónea</entry>
+	<entry key="error.activate.activated.detail">El usuario ya ha sido activado</entry>
+
+	<entry key="error.resetPassword.loginName.summary">Reseteo erróneo</entry>
+	<entry key="error.resetPassword.loginName.detail">No existe un usuario con ese nombre de sessión</entry>
+
+	<entry key="error.modifyPersonalData.fileUpload.summary">Subida errónea</entry>
+	<entry key="error.modifyPersonalData.fileUpload.detail">Se ha producido un error al subir la imágen</entry>
+
+	<entry key="error.admin.image.fileUpload.summary">Sin fotografía</entry>
+	<entry key="error.admin.image.fileUpload.detail">Necesita subir una fotografía antes de pulsar el botón</entry>
+</properties>

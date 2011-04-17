@@ -1,0 +1,112 @@
+<ui:composition template="/xhtml/templates/main_no_session.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+	<ui:param name="pageTitle" value="#{bundle_registration['registration.begin.title']}" />
+	<ui:param name="contentHeader" value="#{bundle_registration['registration.begin.header']}" />
+
+	<ui:define name="content">
+		<ui:decorate template="/xhtml/templates/content.xhtml">
+			<!-- header content here  -->
+			<ui:define name="pageName">
+	                #{contentHeader}
+	        </ui:define>
+
+			<!-- insert content here -->
+			<ui:define name="pageContent">
+				<f:view contentType="text/html">
+					<h:form prependId="false">
+						<h:panelGrid columns="3" cellspacing="5" width="100%">
+								<h:outputLabel>
+					            	 <strong>#{bundle_registration['registration.begin.loginName']}:</strong>
+					           	</h:outputLabel>
+								<h:inputText id="loginName" value="#{registrationBean.loginName}" required="true" 
+									requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+									maxlength="20" validator="#{registrationBean.validateName}">
+									<f:validateLength minimum="5" maximum="20" />
+								</h:inputText>
+								<p:message for="loginName"/>
+								
+								<h:outputLabel>
+					            	 <strong>#{bundle_registration['registration.begin.password']}:</strong>
+					           	</h:outputLabel>
+								<p:password promptLabel="#{bundle_registration['registration.begin.password.prompt']}"
+										weakLabel="#{bundle_registration['registration.begin.password.weak']}" goodLabel="#{bundle_registration['registration.begin.password.good']}" 
+										strongLabel="#{bundle_registration['registration.begin.password.strong']}"
+										id="password" value="#{registrationBean.password}" required="true" 
+										requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+										validatorMessage="#{bundle_error['error.form.validation.minLength.5']}"
+										maxlength="20" binding="#{registrationBean.passwordComponent}">
+									<f:validateLength minimum="5" maximum="20" />
+								</p:password>
+								<p:message for="password"/>
+								
+								<h:outputLabel>
+					            	 <strong>#{bundle_registration['registration.begin.rePassword']}:</strong>
+					           	</h:outputLabel>
+								<h:inputSecret id="rePassword" value="#{registrationBean.rePassword}" required="true" 
+									requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+									maxlength="20" validator="#{registrationBean.validateRePassword}">							
+								</h:inputSecret>
+								<p:message for="rePassword"/>
+								
+								<h:outputLabel>
+					            	 <strong>#{bundle_registration['registration.begin.email']}:</strong>
+					           	</h:outputLabel>
+								<h:inputText id="email" value="#{registrationBean.email}" required="true"
+									requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+									maxlength="64">
+									<f:validator validatorId="regExpValidator"/>
+									<f:attribute name="regularExpression" value="#{bundle_general['regularExpresion.email']}"/>
+									<f:attribute name="messageError" value="#{bundle_error['error.form.validation.regularExpresion.email']}"/>
+								</h:inputText>
+								<p:message for="email"/>
+								
+								<h:outputLabel>
+					            	 <strong>#{bundle_registration['registration.begin.name']}:</strong>
+					           	</h:outputLabel>
+								<h:inputText id="name" value="#{registrationBean.name}" required="true" 
+									requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+									validatorMessage="#{bundle_error['error.form.validation.minLength.2']}"
+									maxlength="64">
+									<f:validateLength minimum="2" maximum="64" />
+								</h:inputText>
+								<p:message for="name"/>
+								
+								<h:outputLabel>
+					            	 <strong>#{bundle_registration['registration.begin.surname']}:</strong>
+					           	</h:outputLabel>
+								<h:inputText id="surname" value="#{registrationBean.surname}" required="true"
+									requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+									validatorMessage="#{bundle_error['error.form.validation.minLength.5']}"
+									maxlength="128">
+									<f:validateLength minimum="2" maximum="128" />
+								</h:inputText>
+								<p:message for="surname"/>
+						</h:panelGrid>
+						
+						<h:panelGrid columns="2">
+							<p:captcha id="captcha" language="#{facesContext.externalContext.requestLocale.language}" theme="white"
+							validatorMessage="error.form.validation.validateCaptcha.detail"
+							requiredMessage="#{bundle_error['error.form.validation.requiredField']}"/>
+							<p:message for="captcha"/>
+							
+						</h:panelGrid>
+						
+						<h:panelGrid columns="3">							
+							<h:selectBooleanCheckbox id="privacy" value="#{registrationBean.privacy}" required="true" 
+								requiredMessage="#{bundle_error['error.form.validation.privacy']}">
+								<f:validator validatorId="requiredCheckboxValidator"/>
+							</h:selectBooleanCheckbox>
+							<h:outputLabel escape="false" value="#{bundle_registration['registration.begin.privacy']}"/>
+							<p:message for="privacy"/>
+						</h:panelGrid>
+						<p:commandButton ajax="false" id="saveBtn" value="#{bundle_registration['registration.begin.submit']}" action="#{registrationBean.save}" />
+					</h:form>
+				</f:view>
+			</ui:define>
+		</ui:decorate>
+	</ui:define>
+</ui:composition>

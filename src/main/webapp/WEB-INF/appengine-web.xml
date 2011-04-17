@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://appengine.google.com/ns/1.0
+	xsd/appengine-web.xsd">
+	<application>alvsanand</application>
+	<version>14</version>
+	
+	<sessions-enabled>true</sessions-enabled>
+	<ssl-enabled>true</ssl-enabled>
+	<!-- Configure java.util.logging -->
+	<system-properties>
+		<property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+	</system-properties>
+	
+	<resource-files/>
+	
+	<!--static-files>
+        <include path="**.nocache*" expiration="1s"/>
+        <include path="/**.cache*" expiration="3000d"/>
+        <include path="/**.png*" expiration="1d"/>
+        <include path="/**.gif*" expiration="1d"/>
+        <include path="/**.jpg*" expiration="1d"/>
+        <include path="/**.css*" expiration="1d"/>
+        <include path="/**.js*" expiration="1d"/>
+	</static-files--> 
+	
+	<precompilation-enabled>true</precompilation-enabled>
+</appengine-web-app>

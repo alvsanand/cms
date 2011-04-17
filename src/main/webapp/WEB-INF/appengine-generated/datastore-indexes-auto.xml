@@ -1,0 +1,13 @@
+<!-- Indices written at Tue, 21 Sep 2010 09:41:35 UTC -->
+
+<datastore-indexes>
+    <!-- Used 10 times in query history -->
+    <datastore-index kind="Tag" ancestor="false" source="auto">
+        <property name="idArticle" direction="asc"/>
+        <property name="__key__" direction="desc"/>
+    </datastore-index>
+	
+	<datastore-index kind="ArticleVersion" ancestor="true" source="auto">
+        <property name="__key__" direction="desc"/>
+    </datastore-index>
+</datastore-indexes>

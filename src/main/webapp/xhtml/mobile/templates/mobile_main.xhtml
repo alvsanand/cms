@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"  
+        xmlns:i="http://primefaces.prime.com.tr/touch"
+    	xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+        contentType="text/html">
+
+	<i:application>
+        <f:facet name="meta">
+			<script type="text/javascript">
+			//<![CDATA[
+			  	var context = '#{request.contextPath}';
+			//]]>
+			</script>
+			<script type="text/javascript" src="#{request.contextPath}/js/main.js"/>
+		</f:facet>
+		
+		<ui:insert name="content">
+		<!--Default Content-->
+		</ui:insert>	
+		<ui:include src="/xhtml/mobile/content/about.xhtml"/>
+	</i:application>
+</f:view>

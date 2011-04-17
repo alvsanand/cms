@@ -1,0 +1,18 @@
+<ui:composition template="/xhtml/mobile/templates/mobile_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+    xmlns:i="http://primefaces.prime.com.tr/touch"
+		xmlns:h="http://java.sun.com/jsf/html" >    
+    <ui:param name="home" value="false" />
+    
+	<ui:define name="content">
+		<i:view id="error" title="#{bundle_error['error.header']}">    
+			<i:tableView>
+				<i:rowGroup title="#{textHeader}">
+			 		<i:rowItem><h:outputText escape="false" value="#{textDesc}"/></i:rowItem>
+				</i:rowGroup>		
+			</i:tableView>
+	     </i:view>
+     </ui:define>
+</ui:composition>

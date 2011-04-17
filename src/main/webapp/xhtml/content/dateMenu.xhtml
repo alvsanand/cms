@@ -1,0 +1,20 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:sec="http://alvsanand.appspot.com/security/facelets/tags">
+	<h3>#{bundle_menu['menu.date.title']}</h3>
+	<div class="content">
+		<f:view contentType="text/html">
+			<h:form id="dateTree">
+				<p:tree value="#{homeBean.treeNode}" var="node" expandAnim="FADE_IN" collapseAnim="FADE_OUT">
+				   	<p:treeNode>				   		
+						<h:link outcome="pretty:date" value="#{node.text} (#{node.length})">
+							<f:param name="date" value="#{node.date}" />
+						</h:link>
+					</p:treeNode>
+				</p:tree>
+			</h:form>
+		</f:view>
+	</div>
+</f:view>

@@ -1,0 +1,30 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">	
+		<ui:param name="pageTitle" value="#{bundle_home['home.title']}" />
+		<ui:param name="contentHeader" value="#{bundle_home['home.header']}" />
+		
+		<ui:define name="content">
+			<ui:decorate template="/xhtml/templates/content.xhtml">
+				<!-- header content here  -->
+				<ui:define name="pageName">
+	                #{contentHeader}
+	            </ui:define>
+	
+				<!-- insert content here -->
+				<ui:define name="pageContent">
+					<p>Logout success</p>
+					<f:view contentType="text/html">
+						<f:view contentType="text/html">
+							<h:form prependId="false">
+								<p:commandLink action="home" value="Home" />
+							</h:form>
+						</f:view>
+					</f:view>
+				</ui:define>
+			</ui:decorate>
+		</ui:define>
+</ui:composition>

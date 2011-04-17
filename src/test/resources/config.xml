@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Website properties</comment>
+	<entry key="alvsanand.website.context"></entry>
+	<entry key="alvsanand.website.domain">alvsanand.appspot.com</entry>
+	<entry key="alvsanand.website.email">test.alvsanand.appspot.com@gmail.com</entry>
+	<entry key="alvsanand.picasa.application">test.alvsanand.appspot.com</entry>
+	<entry key="alvsanand.picasa.user">test.alvsanand.appspot.com</entry>
+	<entry key="alvsanand.picasa.pass">Fausto2011</entry>
+	<entry key="alvsanand.avatar.height">90</entry>
+	<entry key="alvsanand.avatar.width">90</entry>
+</properties>

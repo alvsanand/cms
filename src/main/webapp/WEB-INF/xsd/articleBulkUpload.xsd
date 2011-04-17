@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://alvsanand.appspot.com/articleBulkUpload" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:abu="http://alvsanand.appspot.com/articleBulkUpload">
+    <xs:element name="articleBulkUpload" type="abu:articleBulkUploadType"/>
+    
+    <xs:complexType name="articleBulkUploadType">
+    	<xs:sequence>
+    		<xs:element name="article" type="abu:articleType" minOccurs="1" maxOccurs="10"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="articleType">
+    	<xs:sequence>
+    		<xs:element name="title" type="xs:string" maxOccurs="1" minOccurs="1"/>
+    		<xs:element name="name" type="xs:string" maxOccurs="1" minOccurs="1"/>
+    		<xs:element name="date" type="xs:dateTime" maxOccurs="1" minOccurs="1"/>
+    		<xs:element name="data" type="xs:string" maxOccurs="1" minOccurs="1"/>
+    	</xs:sequence>
+    </xs:complexType>
+</xs:schema>

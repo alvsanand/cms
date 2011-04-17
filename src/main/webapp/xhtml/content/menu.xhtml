@@ -1,0 +1,51 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:sec="http://alvsanand.appspot.com/security/facelets/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<div id="menu">
+		<ul>
+			<li class="first">
+				<h:link outcome="pretty:home" value="#{bundle_menu['menu.main.home']}" />			
+			</li>
+			<sec:ifAnyGranted roles="ROLE_DEVELOPER,ROLE_ADMIN,ROLE_PUBLISHER_USER,ROLE_GENERIC_USER">
+			<li>
+				<h:link outcome="pretty:listArticle" value="#{bundle_menu['menu.main.admin']}" />
+			</li>
+			</sec:ifAnyGranted>
+			<li>
+				<h:link outcome="pretty:gallery" value="#{bundle_menu['menu.main.galleryAlbums']}"/>
+			</li>
+		    <ui:repeat var="tagCount" value="#{homeBean.tagCountListSortedByCountForMenu}" varStatus="status">
+				<li>
+					<h:link outcome="pretty:tag" value="#{tagCount.name}">
+						<f:param name="tagName" value="#{tagCount.name}" />
+					</h:link>
+				</li>
+			</ui:repeat>
+		</ul>
+		<div id="search">
+			<h:form prependId="false">
+				<h:panelGrid columns="3">
+					<h:inputText id="query" value="#{searchBean.query}" required="true"
+						requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+						validatorMessage="#{bundle_error['error.form.validation.minLength.3']}"
+						maxlength="40">
+						<f:validateLength minimum="3" maximum="40" />
+					</h:inputText>
+					<p:spacer width="20"/>
+			    	<p:commandButton ajax="false" id="searchBtn" value="#{bundle_menu['menu.main.search']}" action="#{searchBean.searchArticlesByQuery}" />
+		    	</h:panelGrid>
+		    	<div class="extraContent">
+		    		<p:message for="query"/>
+		    	</div>
+			</h:form>
+		</div>	
+		<div id="date">
+			<h:outputLabel value="#{utilBean.actualDate}">
+				<f:convertDateTime pattern="MMMMMMMM dd, yyyy" />				
+			</h:outputLabel>
+		</div>			
+	</div>
+</f:view>

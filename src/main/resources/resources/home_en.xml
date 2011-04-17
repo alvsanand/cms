@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Home localization</comment>
+
+	<entry key="home.title">Home</entry>
+
+	<entry key="home.article.by">Created by</entry>
+	<entry key="home.article.printerFriendly">Printer Friendly</entry>
+	<entry key="home.article.comments">Comments</entry>
+	<entry key="home.article.readMore">Read more</entry>
+	<entry key="home.article.mename.title">Send to Meneame</entry>
+	<entry key="home.article.mename.button">Meneame</entry>
+	<entry key="home.article.bitacoras.title">Send to Bitacoras.com</entry>
+	<entry key="home.article.bitacoras.button">Bitacoras</entry>
+	<entry key="home.article.facebook.title">Share in Facebook</entry>
+	<entry key="home.article.facebook.button">Facebook</entry>
+	<entry key="home.article.twitter.title">Twitter this</entry>
+	<entry key="home.article.twitter.button">Twitter</entry>
+
+
+	<entry key="home.articles.notRegistered"><![CDATA[
+		You have to be logged to comment the article. Press <a href="{0}">here</a> to login.
+	]]>
+	</entry>
+	<entry key="home.articles.addComment">Add comment</entry>
+	<entry key="home.articles.cancelComment">Cancel</entry>
+
+	<entry key="home.articles.forwardArticles">More</entry>
+	<entry key="home.articles.backwardArticles">Less</entry>
+
+	<entry key="home.comment.by">Commented by:</entry>
+
+	<entry key="home.rating.rate">Rate</entry>
+
+	<entry key="home.gallery.title">Gallery</entry>
+	<entry key="home.gallery.slideshow.start">Start SlideShow</entry>
+	<entry key="home.gallery.slideshow.stop">Stop SlideShow</entry>
+</properties>

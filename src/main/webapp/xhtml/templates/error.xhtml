@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.prime.com.tr/ui">
+	
+	 <h:head>
+	    <title>#{bundle_general['main.title']} - #{pageTitle}</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	    <meta http-equiv="Content-Language" content="en" />
+	    <meta http-equiv="imagetoolbar" content="no" />
+	    <meta name="keywords" content="" />
+	    <meta name="description" content="" />
+		
+	    <link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/default/skin.css" />
+	    <link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/default/default.css" />
+	    <link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/default/skin.css" media="print"/>
+	    <link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/default/print.css" media="print"/>
+	    
+		<script type="text/javascript">
+		//<![CDATA[
+		  	var context = '#{request.contextPath}';
+		//]]>
+		</script>
+	    <script type="text/javascript" src="#{request.contextPath}/js/main.js"/>
+	</h:head>
+	<body>
+		<div id="outer">
+			<div id="upbg"></div>
+		
+			<div id="inner">
+				<ui:include src="/xhtml/content/header.xhtml"/>
+			
+				<ui:include src="/xhtml/content/splash.xhtml"/>
+			
+				<ui:include src="/xhtml/content/menu.xhtml"/>
+					
+				<div id="primarycontent">		
+					<!-- primary content start -->
+				
+					<ui:insert name="content">
+				            Default Content
+				    </ui:insert>
+		
+					<!-- primary content end -->	
+				</div>
+			
+				<ui:include src="/xhtml/content/footer.xhtml"/>		
+			</div>		
+		</div>
+		<ui:insert name="popups">
+			<!--Default Content-->
+		</ui:insert>
+		<ui:include src="/xhtml/content/termsOfUse.xhtml"/>
+	</body>
+</html>

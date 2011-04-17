@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pretty-config xmlns="http://ocpsoft.com/prettyfaces/3.1.0" 
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+               xsi:schemaLocation="http://ocpsoft.com/prettyfaces/3.1.0
+                                   		http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.1.0.xsd">
+	
+	<!-- Remove jsessionid  -->
+	<rewrite match="(.*);jsessionid=\w+(.*)" substitute="$1" redirect="chain"/>
+	
+	<!-- Error pages -->
+	<url-mapping id="error.400">
+		<pattern value="/error/400"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.401">
+		<pattern value="/error/401"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.403">
+		<pattern value="/error/403"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.404">
+		<pattern value="/error/404"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.405">
+		<pattern value="/error/405"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.500">
+		<pattern value="/error/500"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.501">
+		<pattern value="/error/501"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.503">
+		<pattern value="/error/503"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.400">
+		<pattern value="/error/400"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.accessDenied">
+		<pattern value="/error/accessDenied"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.badCredentials">
+		<pattern value="/error/badCredentials"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.unknow">
+		<pattern value="/error/unknow"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.usernameNotFound">
+		<pattern value="/error/usernameNotFound"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.usernameNotAccepted">
+		<pattern value="/error/usernameNotAccepted"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<url-mapping id="error.ausernameDisabled">
+		<pattern value="/error/ausernameDisabled"/>
+		<view-id>#{mobileDynamicHandler.getErrorPath}</view-id>
+	</url-mapping>
+	<!-- *********** -->
+	
+	<url-mapping id="home">
+		<pattern value="/home"/>
+		<view-id>/xhtml/articles.jsf</view-id>
+		<action onPostback="false">#{homeBean.home}</action>
+	</url-mapping>
+	
+	<url-mapping id="login">
+		<pattern value="/login"/>
+		<view-id>/xhtml/login.jsf</view-id>
+	</url-mapping>
+	
+	<url-mapping id="loginGoogleSSO">
+		<pattern value="/loginGoogleSSO"/>
+		<view-id>/xhtml/login.jsf</view-id>
+		<action onPostback="false">#{loginBean.loginGoogleSSO}</action>
+	</url-mapping>
+	
+	<url-mapping id="logoutGoogleSSO">
+		<pattern value="/logoutGoogleSSO"/>
+		<view-id>/xhtml/home.jsf</view-id>
+		<action onPostback="false">#{loginBean.logoutGoogleSSO}</action>
+	</url-mapping>
+	
+	<url-mapping id="article">
+		<pattern value="/article/#{name : homeBean.name}"/>
+		<query-param name="focusComments">#{homeBean.focusComments}</query-param>
+		<view-id>/xhtml/article.jsf</view-id>
+		<action onPostback="false">#{homeBean.showArticle}</action>
+	</url-mapping>
+	
+	<url-mapping id="viewArticle">
+		<pattern value="/article/#{homeBean.name}"/>
+		<view-id>/xhtml/article.jsf</view-id>
+		<action onPostback="false">#{homeBean.showArticle}</action>
+	</url-mapping>
+	
+	<url-mapping id="tag">
+		<pattern value="/tag/#{tagName : searchBean.tagName}"/>
+		<view-id>/xhtml/articlesByTag.jsf</view-id>
+		<action>#{searchBean.searchArticlesByTagName}</action>
+	</url-mapping>
+	
+	<url-mapping id="date">
+		<pattern value="/date/#{date : searchBean.date}"/>
+		<view-id>/xhtml/articlesByDate.jsf</view-id>
+		<action>#{searchBean.searchArticlesByDate}</action>
+	</url-mapping>
+	
+	<!-- Admin Tag -->
+	<url-mapping id="listTag">
+		<pattern value="/sec/admin/cms/tags"/>
+		<view-id>/xhtml/secured/admin/tags/list.jsf</view-id>
+		<action onPostback="false">#{tagBean.getTags}</action>
+	</url-mapping>
+	
+	<!-- Admin Article -->
+	<url-mapping id="listArticle">
+		<pattern value="/sec/admin/cms/articles"/>
+		<view-id>/xhtml/secured/admin/articles/list.jsf</view-id>
+		<action onPostback="false">#{articleBean.getArticles}</action>
+	</url-mapping>
+	
+	<!-- Admin User -->
+	<url-mapping id="listUser">
+		<pattern value="/sec/admin/users"/>
+		<view-id>/xhtml/secured/admin/users/list.jsf</view-id>
+		<action onPostback="false">#{userBean.getUsers}</action>
+	</url-mapping>
+	
+	<url-mapping id="register">
+		<pattern value="/register"/>
+		<view-id>/xhtml/session/beginRegistration.jsf</view-id>
+		<action onPostback="false">#{registrationBean.create}</action>
+	</url-mapping>
+	
+	<url-mapping id="activation">
+		<pattern value="/activation/#{registrationHash : registrationBean.registrationHash}"/>
+		<view-id>/xhtml/session/activation.jsf</view-id>
+		<action onPostback="false">#{registrationBean.activate}</action>
+	</url-mapping>
+	
+	<url-mapping id="resetPassword">
+		<pattern value="/resetPassword"/>
+		<view-id>/xhtml/session/beginResetPassword.jsf</view-id>
+	</url-mapping>
+	
+	<url-mapping id="modifyPersonalData">
+		<pattern value="/sec/personalData"/>
+		<view-id>/xhtml/secured/modifyPersonalData.jsf</view-id>
+		<action onPostback="false">#{registrationBean.loadPersonalData}</action>
+	</url-mapping>
+	
+	<!-- Admin web -->
+	<url-mapping id="eraseCache">
+		<pattern value="/sec/admin/eraseCache"/>
+		<view-id>/xhtml/secured/admin/eraseCache.jsf</view-id>
+		<action>#{webAdminBean.eraseCache}</action>
+	</url-mapping>
+	
+	<!-- Gallery -->
+	<url-mapping id="gallery">
+		<pattern value="/gallery"/>
+		<view-id>/xhtml/gallery.jsf</view-id>
+		<action onPostback="false">#{imageBean.loadAlbums}</action>
+	</url-mapping>
+	
+	<!-- Admin Images -->
+	<url-mapping id="listAlbums">
+		<pattern value="/sec/admin/cms/albums"/>
+		<view-id>/xhtml/secured/admin/images/listAlbum.jsf</view-id>
+		<action onPostback="false">#{imageBean.loadAlbums}</action>
+	</url-mapping>
+	
+	<!-- Mobile Pages -->
+	
+	<url-mapping id="mobile_home">
+		<pattern value="/mobile"/>
+		<view-id>/xhtml/mobile/home.jsf</view-id>
+		<action onPostback="false">#{homeBean.home}</action>
+	</url-mapping>
+	<!-- *********** -->
+</pretty-config>

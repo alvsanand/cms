@@ -1,0 +1,69 @@
+<ui:composition template="/xhtml/templates/main_no_session.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces">	
+		<ui:param name="pageTitle" value="#{bundle_general['login.title']}" />
+		<ui:param name="contentHeader" value="#{bundle_general['login.header']}" />
+		
+		<ui:define name="content">
+			<ui:decorate template="/xhtml/templates/content.xhtml">
+				<!-- header content here  -->
+				<ui:define name="pageName">
+	                #{contentHeader}
+	            </ui:define>
+	
+				<!-- insert content here -->
+				<ui:define name="pageContent">
+					<f:view contentType="text/html">
+						<h:form prependId="false" id="loginForm">
+							 <h:panelGrid columns="2" width="100%">  
+							     <h:panelGroup>
+							     	<pretty:urlbuffer var="registerURL" mappingId="register"/>
+							     	  
+									<h:outputFormat value="#{bundle_general['login.register.text']}" escape="false">
+							        	<f:param value="#{requestScope.registerURL}"/> 
+							        </h:outputFormat>  
+							     </h:panelGroup>
+							     
+							     <h:panelGroup>  
+							           <p:fieldset legend="#{bundle_general['login.legend']}">
+							           		<h:panelGrid columns="2" columnClasses="sessionContent">
+												<h:outputLabel>
+									            	<strong>#{bundle_general['login.username']}:</strong>
+									            </h:outputLabel>
+												<h:inputText id="username" value="#{loginBean.username}" size="10" maxlength="32" required="true"
+														requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+														validatorMessage="#{bundle_error['error.form.validation.minLength.5']}">
+														<f:validateLength minimum="5" maximum="32" />
+												</h:inputText>
+												<p:message for="username" showDetail="true" />
+											</h:panelGrid>											
+											
+											<h:panelGrid columns="2" columnClasses="sessionContent">
+												<h:outputLabel>
+									            	<strong>#{bundle_general['login.password']}:</strong>
+									            </h:outputLabel>
+												<h:inputSecret id="password" value="#{loginBean.password}" size="10" maxlength="32" required="true"
+													requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+													validatorMessage="#{bundle_error['error.form.validation.minLength.5']}">
+													<f:validateLength minimum="5" maximum="32" />
+												</h:inputSecret>
+												<p:message for="password" showDetail="true" />
+											</h:panelGrid>
+					
+											<h:panelGrid columns="2" columnClasses="sessionContent">
+												<h:link outcome="pretty:resetPassword" value="#{bundle_general['sessionPanel.forgetPassword']}"/>
+												
+												<p:commandButton ajax="false" action="#{loginBean.login}" value="#{bundle_general['login.submit']}" />
+											</h:panelGrid>
+							           </p:fieldset>
+							     </h:panelGroup>  
+							 </h:panelGrid>
+						</h:form>
+					</f:view>
+				</ui:define>
+			</ui:decorate>
+		</ui:define>
+</ui:composition>

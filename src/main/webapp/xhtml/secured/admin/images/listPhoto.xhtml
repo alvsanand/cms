@@ -1,0 +1,110 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:cmm="http://alvsanand.appspot.com/common/facelets/tags">
+		
+		<ui:param name="pageTitle" value="#{bundle_admin['admin.image.photo.title']}" />
+		<ui:param name="contentHeader" value="#{bundle_admin['admin.image.photo.header']}" />
+		
+		<ui:define name="content">
+			<ui:decorate template="/xhtml/templates/content.xhtml">
+				<!-- header content here  -->
+				<ui:define name="pageName">
+	                #{imageBean.albumTitle}
+	            </ui:define>
+	
+				<!-- insert content here -->
+				<ui:define name="pageContent">
+					<f:view contentType="text/html">
+						<h:form prependId="false" id="listPhoto">
+							<p:dataGrid value="#{imageBean.photos}" var="photo" columns="3" rows="12" paginator="true" effect="true"  
+								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+								rowsPerPageTemplate="9,12,15" paginatorPosition="bottom">
+								<p:column styleClass="editContent3colum">
+									<p:panel header="#{photo.title}" style="text-align:center">
+								 		<h:panelGrid columns="1" style="width:100%; text-align:center;">
+								 			<h:graphicImage style="border: 0px;"  value="#{photo.thumbnailUrl}"/>
+								 			<h:outputText value="#{photo.description}" style="text-align:left"/>	
+		   									<h:panelGroup>
+			   									<p:commandLink ajax="true" action="#{imageBean.deletePhoto}" value="#{bundle_admin['admin.delete']}"
+			   										update="listPhoto">
+			   										<f:setPropertyActionListener target="#{imageBean.photoId}" value="#{photo.id}" /> 
+			   										<f:setPropertyActionListener target="#{imageBean.albumId}" value="#{photo.albumId}" />						
+			   									</p:commandLink>
+     											<p:spacer width="20"/>
+			     								<p:commandLink ajax="true" action="#{imageBean.editPhoto}" value="#{bundle_admin['admin.edit']}"
+			     									update="photoDetail" oncomplete="photoDialog.show()" >
+			   										<f:setPropertyActionListener target="#{imageBean.photoId}" value="#{photo.id}" /> 
+			   										<f:setPropertyActionListener target="#{imageBean.albumId}" value="#{photo.albumId}" />     										
+			   									</p:commandLink>
+		   									</h:panelGroup>			            				
+				            			</h:panelGrid>
+				            		</p:panel>
+								</p:column>
+					    	</p:dataGrid>
+							<div class="extraContent">
+     							<p:commandButton ajax="true" action="#{imageBean.newPhoto}" value="#{bundle_admin['admin.create']}"
+     									update="photoDetail" oncomplete="photoDialog.show()" />
+					       		<p:spacer width="20"/>
+					    		<p:button id="backBtn" value="#{bundle_admin['admin.back']}" outcome="pretty:listAlbums"/>
+							</div>
+						</h:form>
+					</f:view>
+				</ui:define>
+			</ui:decorate>
+		</ui:define>
+		<ui:define name="popups">
+			<f:view contentType="text/html">
+				<h:form prependId="false" id="editPhoto">
+			    	<p:dialog header="#{(empty imageBean.photoTitle)? bundle_admin['admin.image.photo.create.title'] : imageBean.photoTitle}" widgetVar="photoDialog" width="500" height="300" modal="true">  
+				        <p:outputPanel id="photoDetail" style="text-align:center;" layout="block"> 							              
+				            <h:inputHidden value="#{imageBean.albumId}"/>							              
+				            <h:inputHidden value="#{imageBean.photoId}"/>
+				            <h:panelGrid columns="2" cellpadding="5" width="100%">  
+					            <h:outputLabel rendered="#{! empty imageBean.photoId}">
+			            			<strong>#{bundle_admin['admin.image.photo.param.id']}:</strong>
+					            </h:outputLabel>
+					            <h:outputLabel value="#{imageBean.photoId}" rendered="#{! empty imageBean.photoId}"/>
+					            
+				                <h:outputLabel>
+			            			<strong>#{bundle_admin['admin.image.photo.param.title']}:</strong>
+					            </h:outputLabel>
+					            <h:panelGroup>
+				                	<h:inputText id="title" value="#{imageBean.photoTitle}" required="true" requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+										maxlength="20"/>
+									<p:message for="title"/>
+								</h:panelGroup>
+					            
+				                <h:outputLabel>
+			            			<strong>#{bundle_admin['admin.image.photo.param.description']}:</strong>
+					            </h:outputLabel>
+					            <h:panelGroup>
+				                	<h:inputText id="description" value="#{imageBean.photoDescription}" maxlength="100"/>
+									<p:message for="description"/>
+								</h:panelGroup>
+				            </h:panelGrid>										
+							<p:fileUpload widgetVar="fileUpload" id="fileUpload" multiple="false" sizeLimit="300000" fileUploadListener="#{imageBean.handleFileUpload}" allowTypes="*.jpg;*.png;*.gif;" 
+								update="messages,addPhotoBtn" customUI="true" width="200px" rendered="#{!imageBean.couldUpdateImage}">
+								<div class="fileUploadUI">
+									<h:outputLink value="javascript:void(0)" onclick="fileUpload.upload();">#{bundle_admin['admin.image.uploadFile']}</h:outputLink>
+									<p:spacer width="20"/>
+									<h:outputLink value="javascript:void(0)" onclick="fileUpload.clear();">#{bundle_admin['admin.image.clearUploadFile']}</h:outputLink>
+								</div>
+							</p:fileUpload>
+				            <h:panelGrid id="photoBtnPanelGrid" columns="1" cellpadding="5">
+				            	<p:messages id="messages" showDetail="true" globalOnly="true"/>
+					            <p:commandButton id="updatePhotoBtn" update="photoDetail,listPhoto" value="#{bundle_admin['admin.save']}" action="#{imageBean.updatePhoto}" rendered="#{imageBean.couldUpdateImage}"
+					            	oncomplete="photoDialog.hide()"/>
+					            <p:commandButton id="addPhotoBtn" update="photoDetail,listPhoto" value="#{cmm:getMessage('bundle_admin','admin.save')}" action="#{imageBean.addPhoto}" rendered="#{!imageBean.couldUpdateImage}" 
+					            	disabled="#{!imageBean.couldAddImage}" oncomplete="photoDialog.hide()"/>
+				            </h:panelGrid>
+				        </p:outputPanel>
+				     </p:dialog>
+				</h:form>
+			</f:view>
+		</ui:define>
+</ui:composition>

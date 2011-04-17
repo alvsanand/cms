@@ -1,0 +1,43 @@
+<ui:composition template="/xhtml/mobile/templates/mobile_main.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+    xmlns:i="http://primefaces.prime.com.tr/touch"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">    
+    <ui:param name="home" value="true" />
+    
+	<ui:define name="content">
+		<i:view id="home" title="#{bundle_mobile['title.home']}">
+            <f:facet name="rightNavBar">
+                    <i:navBarControl id="searchBtn_home" label="#{bundle_mobile['title.search']}" type="button" view="search" effect="slideup"/>
+            </f:facet>
+
+			<h:form prependId="false">
+				<i:tableView id="articlesTable">
+					<i:rowGroup>
+						<ui:repeat var="article" value="#{homeBean.articles}" varStatus="count">					
+				 			<i:rowItem value="#{article.title}" view="article" action="#{homeBean.showArticle}" update="articleInfoTable,tagsTable,articleTable,commentsTable">
+				 				<f:setPropertyActionListener target="#{homeBean.name}" value="#{article.name}" />
+				 			</i:rowItem>
+				 		</ui:repeat>
+				 	</i:rowGroup>
+				 	
+		 			<h:panelGrid columns="2">
+						<p:commandLink action="#{homeBean.showPreviousArticles}" rendered="#{homeBean.canBackward}" update="articlesTable" oncomplete="scroll('articlesTable')" value="#{bundle_mobile['home.lessArticles']}" style="margin:10px 10px;" styleClass="whiteButton"/>
+     			
+						<p:commandLink action="#{homeBean.showNextArticles}" rendered="#{homeBean.canForward}" update="articlesTable" oncomplete="scroll('articlesTable')" value="#{bundle_mobile['home.moreArticles']}" style="margin:10px 10px;" styleClass="whiteButton"/>
+					</h:panelGrid>
+				</i:tableView>
+			</h:form>
+			<script type="text/javascript">						
+			//<![CDATA[
+			//]]>
+			</script>
+	    </i:view>
+		<ui:include src="/xhtml/mobile/article.xhtml"/>
+		<ui:include src="/xhtml/mobile/searchedArticle.xhtml"/>   
+		<ui:include src="/xhtml/mobile/searchedArticles.xhtml"/> 
+		<ui:include src="/xhtml/mobile/search.xhtml"/>
+     </ui:define>
+</ui:composition>

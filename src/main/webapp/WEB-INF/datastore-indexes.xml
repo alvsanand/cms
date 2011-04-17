@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datastore-indexes xmlns="http://appengine.google.com/ns/datastore-indexes/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://appengine.google.com/ns/datastore-indexes/1.0
+	xsd/datastore-indexes.xsd"
+	autoGenerate="false">
+	<datastore-index kind="Article" ancestor="false" source="manual">
+		<property name="state" direction="asc" />
+		<property name="date" direction="desc" />
+	</datastore-index>
+	
+	<datastore-index kind="Article" ancestor="false" source="manual">
+        <property name="state" direction="asc"/>
+        <property name="date" direction="asc"/>
+    </datastore-index>
+	
+	<datastore-index kind="User" ancestor="false" source="manual">
+		<property name="loginName" direction="asc" />
+		<property name="password" direction="asc" />
+	</datastore-index>
+    
+    <datastore-index kind="Tag" ancestor="false" source="manual">
+        <property name="asociated" direction="asc"/>
+        <property name="name" direction="asc"/>
+    </datastore-index>
+    
+    <datastore-index kind="ArticleVersion" ancestor="false" source="manual">
+        <property name="idArticle" direction="asc"/>
+        <property name="date" direction="desc"/>
+    </datastore-index>
+    
+    <datastore-index kind="Comment" ancestor="false" source="manual">
+        <property name="idArticle" direction="asc"/>
+        <property name="date" direction="asc"/>
+    </datastore-index>
+    
+    <datastore-index kind="Rating" ancestor="false" source="manual">
+        <property name="idArticle" direction="asc"/>
+        <property name="__key__" direction="desc"/>
+    </datastore-index>
+</datastore-indexes>

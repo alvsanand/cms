@@ -1,0 +1,56 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+		
+		<ui:param name="pageTitle" value="#{bundle_admin['admin.tag.title']}" />
+		<ui:param name="contentHeader" value="#{bundle_admin['admin.tag.header']}" />
+		
+		<ui:define name="content">
+			<ui:decorate template="/xhtml/templates/content.xhtml">
+				<!-- header content here  -->
+				<ui:define name="pageName">
+	                #{contentHeader}
+	            </ui:define>
+	
+				<!-- insert content here -->
+				<ui:define name="pageContent">
+					<f:view contentType="text/html">
+						<h:form prependId="false">					
+							<p:dataTable value="#{tagBean.lazyModel}" var="tag" dynamic="true" lazy="true" paginator="true" rows="10"
+							 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
+							 rowsPerPageTemplate="5,10,15" paginatorPosition="bottom">
+								<p:column>
+				            		<f:facet name="header">
+								    	<h:outputText value="#{bundle_admin['admin.tag.name']}" />
+								  	</f:facet>
+					                <h:outputText value="#{tag.name}"/>
+								</p:column>
+								<p:column>
+				            		<f:facet name="header">
+								    	<h:outputText value="#{bundle_admin['admin.tag.description']}" />
+								  	</f:facet>
+					                <h:outputText value="#{tag.description}"/>
+								</p:column>
+								<p:column>
+   									<p:commandLink ajax="false" action="#{tagBean.deleteTag}" value="#{bundle_admin['admin.delete']}">
+   										<f:setPropertyActionListener target="#{tagBean.name}" value="#{tag.name}" />      										
+   									</p:commandLink>     									
+     								<p:spacer width="20"/>
+									<p:commandLink ajax="false" action="#{tagBean.editTag}" value="#{bundle_admin['admin.edit']}">
+   										<f:setPropertyActionListener target="#{tagBean.name}" value="#{tag.name}" />      										
+   									</p:commandLink>
+								</p:column>
+					    	</p:dataTable>
+					    	
+					    	<div class="extraContent">
+						    	<p:commandButton ajax="false" action="#{tagBean.newTag}" value="#{bundle_admin['admin.create']}"/>
+						    </div>	
+					    </h:form>
+					</f:view>
+				</ui:define>
+			</ui:decorate>
+		</ui:define>
+</ui:composition>

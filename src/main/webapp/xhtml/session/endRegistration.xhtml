@@ -1,0 +1,25 @@
+<ui:composition template="/xhtml/templates/main.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+	<ui:param name="pageTitle" value="#{bundle_registration['registration.end.title']}" />
+	<ui:param name="contentHeader" value="#{bundle_registration['registration.end.header']}" />
+
+	<ui:define name="content">
+		<ui:decorate template="/xhtml/templates/content.xhtml">
+			<!-- header content here  -->
+			<ui:define name="pageName">
+	                #{contentHeader}
+	            </ui:define>
+
+			<!-- insert content here -->
+			<ui:define name="pageContent">
+				<f:view contentType="text/html">
+					<h:form prependId="false">
+						<p:messages id="messages" showDetail="true"/>  
+					</h:form>
+				</f:view>
+			</ui:define>
+		</ui:decorate>
+	</ui:define>
+</ui:composition>

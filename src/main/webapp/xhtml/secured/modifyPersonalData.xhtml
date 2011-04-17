@@ -1,0 +1,115 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:cmm="http://alvsanand.appspot.com/common/facelets/tags">
+	<ui:param name="pageTitle" value="#{bundle_registration['registration.modifyPersonalData.title']}" />
+	<ui:param name="contentHeader" value="#{bundle_registration['registration.modifyPersonalData.header']}" />
+
+	<ui:define name="content">
+		<ui:decorate template="/xhtml/templates/content.xhtml">
+			<!-- header content here  -->
+			<ui:define name="pageName">
+	                #{contentHeader}
+	        </ui:define>
+
+			<!-- insert content here -->
+			<ui:define name="pageContent">
+				<f:view contentType="text/html">
+					<h:form prependId="false">
+					</h:form>
+					<h:form prependId="false" id="personalDataForm">
+						<h:panelGrid columns="1" id="personalDataGrid">
+						<p:messages id="messages" showDetail="true" globalOnly="true"/>
+							<h:panelGrid columns="3" width="100%" headerClass="editHeader" columnClasses="editContentLabel,editContent,editContentMessageError">	
+									<h:outputLabel>
+						            	 <strong>#{bundle_registration['registration.modifyPersonalData.roleName']}:</strong>
+						           	</h:outputLabel>
+									<h:outputLabel>#{bundle_admin[cmm:concat('admin.user.roleName.', sessionScope.user.role.name)]}</h:outputLabel>
+									<h:outputLabel/>
+									
+														
+									<h:outputLabel>
+						            	 <strong>#{bundle_registration['registration.modifyPersonalData.name']}:</strong>
+						           	</h:outputLabel>
+									<h:inputText id="name" value="#{registrationBean.name}" required="#{param['required'] == 'true'}" 
+										requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+										validatorMessage="#{bundle_error['error.form.validation.minLength.2']}"
+										maxlength="64">
+										<f:validateLength minimum="2" maximum="64" />
+									</h:inputText>
+									<p:message for="name"/>
+									
+									<h:outputLabel>
+						            	 <strong>#{bundle_registration['registration.modifyPersonalData.surname']}:</strong>
+						           	</h:outputLabel>
+									<h:inputText id="surname" value="#{registrationBean.surname}" required="#{param['required'] == 'true'}"
+										requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+										validatorMessage="#{bundle_error['error.form.validation.minLength.5']}"
+										maxlength="128">
+										<f:validateLength minimum="2" maximum="128" />
+									</h:inputText>
+									<p:message for="surname"/>								
+									
+									<h:outputLabel>
+						            	 <strong>#{bundle_registration['registration.modifyPersonalData.password']}:</strong>
+						           	</h:outputLabel>
+									<h:inputSecret id="password" value="#{registrationBean.password}" required="#{param['required'] == 'true'}" 
+											requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+											validatorMessage="#{bundle_error['error.form.validation.minLength.5']}"
+											maxlength="20" binding="#{registrationBean.passwordComponent}">
+										<f:validateLength minimum="5" maximum="20" />
+									</h:inputSecret>
+									<p:message for="password"/>
+									
+									<h:outputLabel>
+						            	 <strong>#{bundle_registration['registration.modifyPersonalData.rePassword']}:</strong>
+						           	</h:outputLabel>
+									<h:inputSecret id="rePassword" value="#{registrationBean.rePassword}" required="#{param['required'] == 'true'}" 
+										requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+										maxlength="20" validator="#{registrationBean.validateRePassword}">							
+									</h:inputSecret>
+									<p:message for="rePassword"/>
+									
+									<h:outputLabel>
+						            	 <strong>#{bundle_registration['registration.modifyPersonalData.email']}:</strong>
+						           	</h:outputLabel>
+									<h:inputText id="email" value="#{registrationBean.email}" required="#{param['required'] == 'true'}"
+										requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+										maxlength="64">
+										<f:validator validatorId="regExpValidator"/>
+										<f:attribute name="regularExpression" value="#{bundle_general['regularExpresion.email']}"/>
+										<f:attribute name="messageError" value="#{bundle_error['error.form.validation.regularExpresion.email']}"/>
+									</h:inputText>
+									<p:message for="email"/>
+							</h:panelGrid>							
+							
+							<p:fieldset id="avatarFieldset" legend="#{bundle_registration['registration.modifyPersonalData.avatar']}">
+							    <h:panelGrid columns="1">
+									<h:graphicImage id="avatarImage" url="#{homeBean.avatarImage[sessionScope.user.idUser]}" rendered="#{homeBean.hasAvatarImage[sessionScope.user.idUser]}"/>									
+							
+									<p:fileUpload widgetVar="fileUpload" id="fileUpload" multiple="false" sizeLimit="300000" fileUploadListener="#{registrationBean.handleFileUpload}" allowTypes="*.jpg;*.png;*.gif;" 
+										customUI="true" width="200px">
+										<div class="fileUploadUI">
+											<h:outputLink value="javascript:void(0)" onclick="fileUpload.upload();">#{bundle_admin['admin.image.uploadFile']}</h:outputLink>
+											<p:spacer width="20"/>
+											<h:outputLink value="javascript:void(0)" onclick="fileUpload.clear();">#{bundle_admin['admin.image.clearUploadFile']}</h:outputLink>
+										</div>
+									</p:fileUpload>
+									<p:message for="fileUpload" rendered="showFileUpload"/>
+								</h:panelGrid>
+							</p:fieldset>
+							
+							<p:commandButton ajax="true" id="saveBtn" value="#{bundle_registration['registration.modifyPersonalData.submit']}" action="#{registrationBean.savePersonalData}"
+								update="personalDataGrid,avatarImage,messages">
+								<f:param name="required" value="true"/>
+							</p:commandButton>
+						</h:panelGrid>
+					</h:form>
+				</f:view>
+			</ui:define>
+		</ui:decorate>
+	</ui:define>
+</ui:composition>

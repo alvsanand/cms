@@ -1,0 +1,49 @@
+<i:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"  
+        xmlns:i="http://primefaces.prime.com.tr/touch"
+    	xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html" 
+	id="article_search" title="#{bundle_mobile['title.searchedArticle']}">
+    <f:facet name="leftNavBar">
+    	<i:navBarControl id="backBtn_article_search" label="#{bundle_mobile['title.back']}" type="back" effect="slideup"/>
+    </f:facet>
+    <f:facet name="rightNavBar">
+    	<i:navBarControl id="homeBtn_article_search" label="#{bundle_mobile['title.home']}" view="home" type="button" effect="slideup"/>
+    </f:facet>	
+	
+	<i:tableView id="articleInfoTable_search">
+		<i:rowGroup title="#{homeBean.article.title}">
+			<i:rowItem>
+				#{bundle_mobile['article.by']} <strong><h:outputText value="#{homeBean.article.user.loginName}"/></strong> - 
+				<h:outputText value="#{homeBean.article.date}">
+					<f:convertDateTime pattern="yyyy/MM/dd" />				
+				</h:outputText>								
+			</i:rowItem>
+	 	</i:rowGroup>
+	</i:tableView>
+	<i:tableView id="tagsTable_search">
+		<i:rowGroup>
+			<i:rowItem>
+				<ui:repeat var="tag" value="#{homeBean.article.tags}">
+					<span><img src="#{request.contextPath}/themes/default/images/tag.png"/> #{tag.name} </span>
+				</ui:repeat>							
+			</i:rowItem>
+	 	</i:rowGroup>
+	</i:tableView>
+	<i:tableView id="articleTable_search">
+		<i:rowGroup>
+	 		<i:rowItem>
+	 			<h:outputText value="#{homeBean.article.dataValue}" escape="false"/>
+	 		</i:rowItem>
+	 	</i:rowGroup>
+	</i:tableView>
+	<i:tableView id="commentsTable_search">
+		<ui:repeat varStatus="count" var="comment" value="#{homeBean.article.comments}">
+			<i:rowGroup title="#{comment.title}">		
+		 		<i:rowItem>
+		 			<h:outputText value="#{comment.dataValue}" escape="false"/>
+		 		</i:rowItem>			 		
+		 	</i:rowGroup>
+		</ui:repeat>
+	</i:tableView>
+</i:view>

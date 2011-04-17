@@ -1,0 +1,17 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+	<div id="footer">
+			<a href="javascript:termsOfUse.show()">#{bundle_general['footer.termsOfUse']}</a>
+			<p:spacer width="20"/>
+			<h:outputLabel escape="false" value="#{bundle_general['footer.privacy']}"/>
+			<p:spacer width="20"/>
+			<h:outputLabel escape="false" value="#{bundle_general['footer.designBy']}"/>
+			<p:spacer width="20"/>
+			<img src="#{request.contextPath}/themes/default/images/appengine-silver-120x30.gif" alt="#{bundle_general['footer.appengine']}" />
+			<img src="#{request.contextPath}/themes/default/images/primefaces_logo.gif" alt="#{bundle_general['footer.jsf']}" />
+			<img src="#{request.contextPath}/themes/default/images/datanucleus.png" alt="#{bundle_general['footer.jpa']}" />
+			<img src="#{request.contextPath}/themes/default/images/picasa.gif" alt="#{bundle_general['footer.imageHosting']}" />			
+	</div>
+</f:view>

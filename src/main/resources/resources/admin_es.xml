@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Admin localization</comment>
+
+	<entry key="admin.delete">Borrar</entry>
+	<entry key="admin.edit">Editar</entry>
+	<entry key="admin.create">Crear nuevo</entry>
+	<entry key="admin.reload">Recargar</entry>
+	<entry key="admin.save">Guardar</entry>
+	<entry key="admin.back">Volver</entry>
+
+	<entry key="admin.tag.title">Administrar etiquetas</entry>
+	<entry key="admin.tag.header">Administrar etiquetas</entry>
+
+	<entry key="admin.tag.edit.title">Modificar una etiqueta</entry>
+	<entry key="admin.tag.create.title">Crear nueva etiqueta</entry>
+
+	<entry key="admin.tag.idTag">ID</entry>
+	<entry key="admin.tag.name">Nombre</entry>
+	<entry key="admin.tag.description">Descripción</entry>
+
+	<entry key="admin.article.title">Administrar artículos</entry>
+	<entry key="admin.article.header">Administrar artículos</entry>
+
+	<entry key="admin.article.edit.title">Modificar un árticulo</entry>
+	<entry key="admin.article.create.title">Crear nuevo árticulo</entry>
+
+	<entry key="admin.article.param.idArticle">ID</entry>
+	<entry key="admin.article.param.name">Nombre</entry>
+	<entry key="admin.article.param.date">Creado</entry>
+	<entry key="admin.article.param.modifiedDate">Modificado</entry>
+	<entry key="admin.article.param.title">Título</entry>
+	<entry key="admin.article.param.versions">Versiones</entry>
+	<entry key="admin.article.param.data">Fecha</entry>
+	<entry key="admin.article.param.state">Estado</entry>
+	<entry key="admin.article.param.tags">Tags</entry>
+
+	<entry key="admin.article.loadArticleVersion">Cargar</entry>
+	<entry key="admin.article.disable">Deshabilitar</entry>
+	<entry key="admin.article.enable">Habilitar</entry>
+	<entry key="admin.article.preview">Previsualizar</entry>
+	<entry key="admin.article.articleBulkUpload">Guardar artículos del XML</entry>
+	<entry key="admin.article.articleBulkUpload.uploadFile">Subir fichero</entry>
+	<entry key="admin.article.articleBulkUpload.clearUploadFile">Borrar fichero</entry>
+	<entry key="admin.article.articleBulkUpload.completed.summary">La subida de los artículos ha sido completada satisfactoriamente.</entry>
+	<entry key="admin.article.articleBulkUpload.completed.detail">La subida de los artículos ha sido completada satisfactoriamente.</entry>
+
+	<entry key="admin.article.state.0.text">Deshabilitado</entry>
+	<entry key="admin.article.state.1.text">Habilitado</entry>
+
+	<entry key="admin.user.title">Administrar usuarios</entry>
+	<entry key="admin.user.header">Administrar usuarios</entry>
+
+	<entry key="admin.user.edit.title">Modificar un usuario</entry>
+
+	<entry key="admin.user.loginName">Nombre de sesión</entry>
+	<entry key="admin.user.name">Nombre</entry>
+	<entry key="admin.user.surname">Apellidos</entry>
+	<entry key="admin.user.lastLoginDate">Último acceso</entry>
+	<entry key="admin.user.email">Email</entry>
+	<entry key="admin.user.state">Estado</entry>
+	<entry key="admin.user.roleName">Rol</entry>
+
+	<entry key="admin.user.roleName.ROLE_ADMIN">Administrador</entry>
+	<entry key="admin.user.roleName.ROLE_PUBLISHER_USER">Editor</entry>
+	<entry key="admin.user.roleName.ROLE_GENERIC_USER">Usuario genérico</entry>
+
+	<entry key="admin.user.accept">Aceptar</entry>
+	<entry key="admin.user.disable">Deshabilitar</entry>
+	<entry key="admin.user.restore">Restaurar</entry>
+	<entry key="admin.user.reject">Rechazar</entry>
+
+	<entry key="admin.user.state.0.text">Registrado</entry>
+	<entry key="admin.user.state.1.text">Aceptado</entry>
+	<entry key="admin.user.state.2.text">Rechazado</entry>
+	<entry key="admin.user.state.3.text">Deshabilitado</entry>
+	<entry key="admin.user.state.4.text">Habilitado</entry>
+
+
+	<entry key="admin.comment.edit.title">Modificar un comentario</entry>
+	<entry key="admin.comment.create.title">Crear nuevo comentario</entry>
+
+	<entry key="admin.comment.idTag">ID</entry>
+	<entry key="admin.comment.name">Nombre</entry>
+	<entry key="admin.comment.date">Creado</entry>
+	<entry key="admin.comment.modifiedDate">Modificado</entry>
+	<entry key="admin.comment.title">Título</entry>
+	<entry key="admin.comment.data">Datos</entry>
+
+	<entry key="admin.eraseCache.title">Administrar sitio</entry>
+	<entry key="admin.eraseCache.header">Borrar chaché</entry>
+	<entry key="admin.eraseCache.message.detail">Todos los datos de la caché han sido borrados satisfactoriamente</entry>
+	<entry key="admin.eraseCache.message.summary">Operación completada</entry>
+
+	<entry key="admin.image.album.title">Administrar albúmenes</entry>
+	<entry key="admin.image.album.header">Administrar albúmenes</entry>
+	<entry key="admin.image.photo.title">Administrar fotografías</entry>
+	<entry key="admin.image.photo.header">Administrar fotografías</entry>
+
+	<entry key="admin.image.album.create.title">Crear nuevo Albúm</entry>
+	<entry key="admin.image.photo.create.title">Crear nueva Fotografía</entry>
+
+	<entry key="admin.image.album.param.id">ID</entry>
+	<entry key="admin.image.album.param.title">Título</entry>
+	<entry key="admin.image.album.param.description">Descripción</entry>
+	<entry key="admin.image.album.param.galleryAlbum">Album de galería</entry>
+
+	<entry key="admin.image.photo.param.id">ID</entry>
+	<entry key="admin.image.photo.param.title">Título</entry>
+	<entry key="admin.image.photo.param.description">Descripción</entry>
+
+	<entry key="admin.image.uploadFile">Subir</entry>
+	<entry key="admin.image.clearUploadFile">Borrar</entry>
+	<entry key="admin.uploadedFile.message.detail">El fichero ha sido subido satisfactoriamente</entry>
+	<entry key="admin.uploadedFile.message.summary">Operación completada</entry>
+
+	<entry key="admin.image.show">Fotografías</entry>
+</properties>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sec:securityConfig xmlns:sec="http://alvsanand.appspot.com/security/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://alvsanand.appspot.com/security/config xsd/security-config.xsd ">
+  <sec:interceptURL pattern="/sec/admin/user/.*">
+    <sec:hasAnyRole>
+      <sec:role>ROLE_ADMIN</sec:role>
+    </sec:hasAnyRole>
+  </sec:interceptURL>
+  
+  <sec:interceptURL pattern="/sec/admin/eraseCache">
+    <sec:hasAnyRole>
+      <sec:role>ROLE_ADMIN</sec:role>
+    </sec:hasAnyRole>
+  </sec:interceptURL>
+  
+  <sec:interceptURL pattern="/sec/admin/cms/.*">
+    <sec:hasAnyRole>
+      <sec:role>ROLE_ADMIN</sec:role>
+      <sec:role>ROLE_PUBLISHER_USER</sec:role>
+    </sec:hasAnyRole>
+  </sec:interceptURL>
+  
+  <sec:interceptURL pattern="/sec/.*">
+    <sec:authenticated>true</sec:authenticated>
+  </sec:interceptURL>
+  
+  <sec:interceptURL pattern="/.*/secured/.*">
+    <sec:authenticated>true</sec:authenticated>
+  </sec:interceptURL>
+  
+  <sec:interceptURL pattern="/login">
+    <sec:authenticated>false</sec:authenticated>
+  </sec:interceptURL>
+  
+  <sec:defaultURL>/home</sec:defaultURL>
+</sec:securityConfig>

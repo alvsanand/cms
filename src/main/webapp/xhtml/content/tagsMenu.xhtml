@@ -1,0 +1,27 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sec="http://alvsanand.appspot.com/security/facelets/tags"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces">
+	<h3>#{bundle_menu['menu.tags.title']}</h3>
+	<div class="content">
+		<f:view contentType="text/html">
+			<div id="tagCloud"/>
+			<script type="text/javascript" src="#{request.contextPath}/js/tagCloud/jquery.tagcloud-2.js"/>
+			<script type="text/javascript">
+			    var tags = new Array(); 
+			    <ui:repeat var="tagCount" value="#{homeBean.tagCountListSortedByName}" varStatus="status">
+		    	<pretty:urlbuffer var="tagURL" mappingId="tag">
+					<f:param value="#{tagCount.name}" />
+				</pretty:urlbuffer>
+			
+			    tags[#{status.index}]={tag: "#{tagCount.name}", count: #{tagCount.count}, href: '#{requestScope.tagURL}'};
+				</ui:repeat>
+				
+				$j("#tagCloud").tagCloud(tags);
+			</script>
+		</f:view>
+	</div>
+</f:view>

@@ -1,0 +1,75 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:h="http://java.sun.com/jsf/html">	
+		<ui:param name="pageTitle" value="#{bundle_home['home.title']}" />
+		
+		<ui:define name="content">
+			<f:view contentType="text/html">
+				<h:form id="articles">
+					<p:ajaxStatus style="width:16px;height:16px;">  
+						<f:facet name="start">  
+							<h:graphicImage value="#{request.contextPath}/themes/default/images/ajaxloading.gif" />  
+						</f:facet>
+						<f:facet name="complete">  
+							<h:outputText value="" />  
+						</f:facet>
+					</p:ajaxStatus>
+					<ui:repeat var="article" value="#{homeBean.articles}" varStatus="count">
+						<div class="post" id="post_#{count.index}">
+							<div class="header">
+								<h3>#{article.title}</h3>
+								<div class="date">
+									#{bundle_home['home.article.by']}
+									<strong><h:outputText value="#{article.user.loginName}"/></strong> - 
+									<h:outputText value="#{article.date}">
+										<f:convertDateTime pattern="yyyy/MM/dd" />				
+									</h:outputText>							
+								</div>
+							</div>
+							<div class="tags">
+								<ui:repeat var="tag" value="#{article.tags}">
+									<span class="tag">
+										<h:link outcome="pretty:tag" value="#{tag.name}">
+											<f:param name="tagName" value="#{tag.name}" />
+										</h:link>
+									</span>
+								</ui:repeat>
+							</div>
+							<div class="content">
+								<h:outputText escape="false" value="#{article.resumeDataValue}"/>
+							</div>			
+							<div class="footer">
+								<ul>
+									<!--<li class="printerfriendly"><a href="#">#{bundle_home['home.article.printerFriendly']}</a></li>-->
+									<li class="comments">
+										<h:link outcome="pretty:article" value="#{bundle_home['home.article.comments']} (#{article.commentCount})">
+											<f:param name="name" value="#{article.name}" />
+											<f:param name="focusComments" value="true" />
+										</h:link>
+									</li>
+									<li class="readmore">
+										<h:link outcome="pretty:article" value="#{bundle_home['home.article.readMore']}">
+											<f:param name="name" value="#{article.name}" />
+											<f:param name="focusComments" value="false" />
+										</h:link>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</ui:repeat>
+					<div class="pagination">
+						<p:commandLink action="#{homeBean.showPreviousArticles}" rendered="#{homeBean.canBackward}" update="articles" oncomplete="scroll('post_0')">
+							<h:graphicImage style="border: 0px"  alt="#{bundle_home['home.articles.backwardArticles']}" value="#{request.contextPath}/themes/default/images/arrow-left-double-2.png"/>
+						</p:commandLink>
+		     			<p:spacer width="20"/>
+						<p:commandLink action="#{homeBean.showNextArticles}" rendered="#{homeBean.canForward}" update="articles" oncomplete="scroll('post_0')">
+							<h:graphicImage style="border: 0px" alt="#{bundle_home['home.articles.forwardArticles']}" value="#{request.contextPath}/themes/default/images/arrow-right-double-2.png"/>
+						</p:commandLink>
+					</div>
+				</h:form>
+			</f:view>
+		</ui:define>
+</ui:composition>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Admin localization</comment>
+
+	<entry key="admin.delete">Delete</entry>
+	<entry key="admin.edit">Edit</entry>
+	<entry key="admin.create">New</entry>
+	<entry key="admin.reload">Reload</entry>
+	<entry key="admin.save">Save</entry>
+	<entry key="admin.back">Back</entry>
+
+	<entry key="admin.tag.title">Admin tags</entry>
+	<entry key="admin.tag.header">Admin tags</entry>
+
+	<entry key="admin.tag.edit.title">Modify tag</entry>
+	<entry key="admin.tag.create.title">New tag</entry>
+
+	<entry key="admin.tag.idTag">ID</entry>
+	<entry key="admin.tag.name">Name</entry>
+	<entry key="admin.tag.description">Description</entry>
+
+	<entry key="admin.article.title">Admin articles</entry>
+	<entry key="admin.article.header">Admin articles</entry>
+
+	<entry key="admin.article.edit.title">Modify article</entry>
+	<entry key="admin.article.create.title">New article</entry>
+
+	<entry key="admin.article.param.idArticle">ID</entry>
+	<entry key="admin.article.param.name">Name</entry>
+	<entry key="admin.article.param.date">Date</entry>
+	<entry key="admin.article.param.modifiedDate">Modified</entry>
+	<entry key="admin.article.param.title">Title</entry>
+	<entry key="admin.article.param.versions">Versions</entry>
+	<entry key="admin.article.param.data">Data</entry>
+	<entry key="admin.article.param.state">State</entry>
+	<entry key="admin.article.param.tags">Tags</entry>
+
+	<entry key="admin.article.loadArticleVersion">Load</entry>
+	<entry key="admin.article.disable">Disable</entry>
+	<entry key="admin.article.enable">Enable</entry>
+	<entry key="admin.article.preview">Preview</entry>
+	<entry key="admin.article.articleBulkUpload">Save articles of XML</entry>
+	<entry key="admin.article.articleBulkUpload.uploadFile">Upload file</entry>
+	<entry key="admin.article.articleBulkUpload.clearUploadFile">Clear file</entry>
+	<entry key="admin.article.articleBulkUpload.completed.summary">The article upload has completed successfully</entry>
+	<entry key="admin.article.articleBulkUpload.completed.detail">The article upload has completed successfully</entry>
+
+	<entry key="admin.article.state.0.text">Disabled</entry>
+	<entry key="admin.article.state.1.text">Enabled</entry>
+
+	<entry key="admin.user.title">Admin users</entry>
+	<entry key="admin.user.header">Admin users</entry>
+
+	<entry key="admin.user.edit.title">Modify user</entry>
+
+	<entry key="admin.user.loginName">Login name</entry>
+	<entry key="admin.user.name">Name</entry>
+	<entry key="admin.user.surname">Surname</entry>
+	<entry key="admin.user.lastLoginDate">Last login</entry>
+	<entry key="admin.user.email">Email</entry>
+	<entry key="admin.user.state">State</entry>
+	<entry key="admin.user.roleName">Role</entry>
+
+	<entry key="admin.user.roleName.ROLE_ADMIN">Administrator</entry>
+	<entry key="admin.user.roleName.ROLE_PUBLISHER_USER">Publisher</entry>
+	<entry key="admin.user.roleName.ROLE_GENERIC_USER">Generic user</entry>
+
+	<entry key="admin.user.accept">Accept</entry>
+	<entry key="admin.user.disable">Disable</entry>
+	<entry key="admin.user.restore">Restore</entry>
+	<entry key="admin.user.reject">Reject</entry>
+
+	<entry key="admin.user.state.0.text">Registered</entry>
+	<entry key="admin.user.state.1.text">Accepted</entry>
+	<entry key="admin.user.state.2.text">Rejected</entry>
+	<entry key="admin.user.state.3.text">Disabled</entry>
+	<entry key="admin.user.state.4.text">Enabled</entry>
+
+
+	<entry key="admin.comment.edit.title">Modify comment</entry>
+	<entry key="admin.comment.create.title">New comment</entry>
+
+	<entry key="admin.comment.idTag">ID</entry>
+	<entry key="admin.comment.name">Name</entry>
+	<entry key="admin.comment.date">Date</entry>
+	<entry key="admin.comment.modifiedDate">Modified</entry>
+	<entry key="admin.comment.title">Title</entry>
+	<entry key="admin.comment.data">Data</entry>
+
+	<entry key="admin.eraseCache.title">Administer site</entry>
+	<entry key="admin.eraseCache.header">Erase </entry>
+	<entry key="admin.eraseCache.message.detail">All the data saved in the Cache has been successfully erased.</entry>
+	<entry key="admin.eraseCache.message.summary">Deleted completed</entry>
+
+
+	<entry key="admin.image.album.title">Admin albums</entry>
+	<entry key="admin.image.album.header">Admin albums</entry>
+	<entry key="admin.image.photo.title">Admin photos</entry>
+	<entry key="admin.image.photo.header">Admin photos</entry>
+
+	<entry key="admin.image.album.create.title">Create new Album</entry>
+	<entry key="admin.image.photo.create.title">Create new Photo</entry>
+
+	<entry key="admin.image.album.param.id">ID</entry>
+	<entry key="admin.image.album.param.title">Title</entry>
+	<entry key="admin.image.album.param.description">Description</entry>
+	<entry key="admin.image.album.param.galleryAlbum">Gallery album</entry>
+
+	<entry key="admin.image.photo.param.id">ID</entry>
+	<entry key="admin.image.photo.param.title">Title</entry>
+	<entry key="admin.image.photo.param.description">Description</entry>
+
+	<entry key="admin.image.uploadFile">Upload</entry>
+	<entry key="admin.image.clearUploadFile">Clean</entry>
+	<entry key="admin.uploadedFile.message.detail">The file was uploaded successfully</entry>
+	<entry key="admin.uploadedFile.message.summary">Uploaded completed</entry>
+
+	<entry key="admin.image.show">Photos</entry>
+</properties>

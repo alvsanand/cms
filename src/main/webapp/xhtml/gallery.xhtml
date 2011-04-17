@@ -1,0 +1,39 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:h="http://java.sun.com/jsf/html">	
+		<ui:param name="pageTitle" value="#{bundle_home['home.gallery.title']}" />
+		
+		<ui:define name="content">
+			<f:view contentType="text/html">
+				<h:form id="articles">
+					<ui:repeat var="album" value="#{homeBean.albums}" varStatus="countGalleryAlbums">
+						<div class="post" id="album_#{count.index}">
+							<div class="header">
+								<h3>#{album.title}</h3>
+								<div class="date">
+									<h:outputText value="#{album.date}">
+										<f:convertDateTime pattern="yyyy/MM/dd" />				
+									</h:outputText>							
+								</div>
+							</div>
+							<div class="content">
+								<h:outputText escape="false" value="#{album.description}"/>
+								<br/>
+								<p:lightBox slideshow="true" slideshowSpeed="2000"   
+								    slideshowStartText="#{bundle_home['home.gallery.slideshow.start']}" slideshowStopText="#{bundle_home['home.gallery.slideshow.stop']}" slideshowAuto="false" >  
+								    <ui:repeat var="photo" value="#{album.photos}" varStatus="countGalleryPhotos">
+								    	<h:outputLink value="#{photo.url}" title="#{photo.title}">  
+								        	<h:graphicImage value="#{photo.thumbnailUrl}"/>  
+								    	</h:outputLink>
+								    </ui:repeat>
+								</p:lightBox>
+							</div>
+						</div>
+					</ui:repeat>
+				</h:form>
+			</f:view>
+		</ui:define>
+</ui:composition>

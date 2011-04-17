@@ -1,0 +1,103 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+		
+		<ui:param name="pageTitle" value="#{bundle_admin['admin.image.album.title']}" />
+		<ui:param name="contentHeader" value="#{bundle_admin['admin.image.album.header']}" />
+		<ui:define name="content">
+			<ui:decorate template="/xhtml/templates/content.xhtml">
+				<!-- header content here  -->
+				<ui:define name="pageName">
+	                #{contentHeader}
+	            </ui:define>
+	
+				<!-- insert content here -->
+				<ui:define name="pageContent">
+					<f:view contentType="text/html">
+						<h:form prependId="false" id="listAlbum">
+							<p:dataGrid value="#{imageBean.albums}" var="album" columns="3" rows="12" paginator="true" effect="true"  
+								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+								rowsPerPageTemplate="9,12,15" paginatorPosition="bottom">
+								<p:column>
+									<p:panel header="#{album.title}" style="text-align:center">
+								 		<h:panelGrid columns="1" style="width:100%; text-align:center;">
+								 			<p:commandLink ajax="false" action="#{imageBean.loadPhotos}">
+								 				<f:setPropertyActionListener target="#{imageBean.albumId}" value="#{album.id}" />
+												<h:graphicImage style="border: 0px;" value="#{request.contextPath}/themes/default/images/album.jpg"/>
+											</p:commandLink>
+								 			
+								 			<h:outputText value="#{fn:replace(album.description, '#Gallery_Album' ,'')}" style="text-align:left"/>	
+		   									<h:panelGroup>
+			   									<p:commandLink ajax="false" action="#{imageBean.deleteAlbum}" value="#{bundle_admin['admin.delete']}">
+			   										<f:setPropertyActionListener target="#{imageBean.albumId}" value="#{album.id}" />      										
+			   									</p:commandLink>
+     											<p:spacer width="20"/>
+			     								<p:commandLink ajax="true" action="#{imageBean.editAlbum}" value="#{bundle_admin['admin.edit']}"
+			     									update="albumDetail" oncomplete="albumDialog.show()" >
+			   										<f:setPropertyActionListener target="#{imageBean.albumId}" value="#{album.id}" />      										
+			   									</p:commandLink>
+		   									</h:panelGroup>			            				
+				            			</h:panelGrid>
+				            		</p:panel>
+								</p:column>
+					    	</p:dataGrid>
+							<div class="extraContent">
+   								<p:commandButton ajax="true" action="#{imageBean.newAlbum}" value="#{bundle_admin['admin.create']}"
+   									update="albumDetail" oncomplete="albumDialog.show()" />
+							</div>
+					    </h:form>
+					</f:view>
+				</ui:define>
+			</ui:decorate>
+		</ui:define>
+		<ui:define name="popups">
+			<f:view contentType="text/html">
+				<h:form prependId="false" id="editAlbum">
+			    	<p:dialog header="#{(empty imageBean.albumTitle) ? bundle_admin['admin.image.album.create.title'] : imageBean.albumTitle}" widgetVar="albumDialog" modal="true">  
+				        <p:outputPanel id="albumDetail" style="text-align:center;" layout="block"> 							              
+				            <h:inputHidden value="#{imageBean.albumId}"/>
+				            <h:panelGrid columns="2" cellpadding="5">  
+					            <h:outputLabel rendered="#{! empty imageBean.albumId}">
+			            			<strong>#{bundle_admin['admin.image.album.param.id']}:</strong>
+					            </h:outputLabel>
+					            <h:outputLabel value="#{imageBean.albumId}" rendered="#{! empty imageBean.albumId}"/>
+					            
+				                <h:outputLabel>
+			            			<strong>#{bundle_admin['admin.image.album.param.title']}:</strong>
+					            </h:outputLabel>
+					            <h:panelGroup>
+				                	<h:inputText id="title" value="#{imageBean.albumTitle}" required="true" requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+										maxlength="20"/>
+									<p:message for="title"/>
+								</h:panelGroup>
+					            
+				                <h:outputLabel>
+			            			<strong>#{bundle_admin['admin.image.album.param.description']}:</strong>
+					            </h:outputLabel>
+					            <h:panelGroup>
+				                	<h:inputText id="description" value="#{imageBean.albumDescription}" maxlength="100"/>
+									<p:message for="description"/>
+								</h:panelGroup>
+					            
+				                <h:outputLabel>
+			            			<strong>#{bundle_admin['admin.image.album.param.galleryAlbum']}:</strong>
+					            </h:outputLabel>
+					            <h:panelGroup>
+				                	<h:selectBooleanCheckbox id="galleryAlbum" value="#{imageBean.galleryAlbum}" maxlength="100"/>
+									<p:message for="galleryAlbum"/>
+								</h:panelGroup>  
+				            </h:panelGrid>
+				            <p:commandButton id="updateAlbumBtn" update="albumDetail,listAlbum" value="#{bundle_admin['admin.save']}" action="#{imageBean.updateAlbum}" rendered="#{! empty imageBean.albumId}"
+				            	oncomplete="albumDialog.hide()"/>
+				            <p:commandButton id="addAlbumBtn" update="albumDetail,listAlbum" value="#{bundle_admin['admin.save']}" action="#{imageBean.addAlbum}" rendered="#{empty imageBean.albumId}"
+				            	oncomplete="albumDialog.hide()"/>
+				        </p:outputPanel>
+				     </p:dialog>
+				</h:form>
+			</f:view>
+		</ui:define>
+</ui:composition>

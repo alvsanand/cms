@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Registration localization</comment>
+
+	<entry key="registration.begin.title">Register</entry>
+	<entry key="registration.begin.header">Registration Form</entry>
+
+	<entry key="registration.begin.loginName">Login name</entry>
+	<entry key="registration.begin.password">Password</entry>
+	<entry key="registration.begin.rePassword">Repeat password</entry>
+	<entry key="registration.begin.email">Email</entry>
+	<entry key="registration.begin.name">Name</entry>
+	<entry key="registration.begin.surname">Surname</entry>
+
+	<entry key="registration.begin.password.prompt">Please, insert a password</entry>
+	<entry key="registration.begin.password.weak">Weak</entry>
+	<entry key="registration.begin.password.good">Good</entry>
+	<entry key="registration.begin.password.strong">Strong</entry>
+
+	<entry key="registration.begin.submit">Submit</entry>
+	
+	
+	<entry key="registration.begin.privacy"><![CDATA[I have read and agree <a href="javascript:termsOfUse.show()">the terms of use</a>]]></entry>
+
+	<entry key="registration.end.title">Register</entry>
+	<entry key="registration.end.header">Register</entry>
+	<entry key="registration.end.completed.summary">Registration completed</entry>
+	<entry key="registration.end.completed.detail">You have registered successfully in the system. An email has been sent to you with the instructions to activate your account.</entry>
+	
+	<entry key="registration.activation.title">Activation</entry>
+	<entry key="registration.activation.header">Activation</entry>
+	<entry key="registration.activation.completed.summary">Activation completed</entry>
+	<entry key="registration.activation.completed.detail">You have registered successfully in the system. Now you can access using your user name and password provided previously.</entry>
+
+	<entry key="registration.activation.email.subject">Activate alvsanand.appspot.com account</entry>
+	<entry key="registration.activation.email.body"><![CDATA[	Hello,
+
+Thank you for signing up with alvsanand.appspot.com.
+
+You are one step away from completing registration proccess at alvsanand.wordpress.com.
+Please click this link to activate your account:
+
+{0}
+
+All the best,
+	The Spotify Team
+
+(If clicking the link in this message does not work, copy and paste itinto the address bar of your browser.)]]>
+	</entry>
+
+	<entry key="registration.resotrePassword.email.subject">New password for alvsanand.appspot.com</entry>
+	<entry key="registration.resotrePassword.email.body"><![CDATA[	Hello,
+ 
+Forgetting your password needn't cause you any sleepless nights as all you have to do to reset it is to use this new one:
+ 
+Your username is: 		{0}
+Your new password is:	{1}
+ 
+All the best,
+	The Spotify Team]]>
+	</entry>
+
+	<entry key="registration.resetPassword.begin.title">Reset password</entry>
+	<entry key="registration.resetPassword.begin.header">Reset password</entry>
+
+	<entry key="registration.resetPassword.begin.loginName">Login name</entry>
+
+	<entry key="registration.resetPassword.begin.submit">Submit</entry>		
+		
+	<entry key="registration.resetPassword.activation.title">Reset password</entry>
+	<entry key="registration.resetPassword.activation.header">Reset password</entry>
+	
+	<entry key="registration.resetPassword.activation.completed.summary">Reset password completed</entry>
+	<entry key="registration.resetPassword.activation.completed.detail">The password has been reseted successfully. An email has been sent to you with the new password.</entry>
+
+	<entry key="registration.modifyPersonalData.title">Personal data</entry>
+	<entry key="registration.modifyPersonalData.header">Personal data</entry>
+
+	<entry key="registration.modifyPersonalData.roleName">Role</entry>
+	<entry key="registration.modifyPersonalData.password">Password</entry>
+	<entry key="registration.modifyPersonalData.rePassword">Repeat password</entry>
+	<entry key="registration.modifyPersonalData.email">Email</entry>
+	<entry key="registration.modifyPersonalData.name">Name</entry>
+	<entry key="registration.modifyPersonalData.surname">Surname</entry>
+	<entry key="registration.modifyPersonalData.avatar">Avatar</entry>
+	<entry key="registration.modifyPersonalData.toggleUploadFile">+</entry>
+	<entry key="registration.modifyPersonalData.uploadFile">Upload file</entry>
+	<entry key="registration.modifyPersonalData.clearUploadFile">Clear file</entry>
+
+	<entry key="registration.modifyPersonalData.password.prompt">Please, insert a password</entry>
+	<entry key="registration.modifyPersonalData.password.weak">Weak</entry>
+	<entry key="registration.modifyPersonalData.password.good">Good</entry>
+	<entry key="registration.modifyPersonalData.password.strong">Strong</entry>
+
+	<entry key="registration.modifyPersonalData.submit">Submit</entry>
+	
+	<entry key="registration.modifyPersonalData.completed.summary">Data saved</entry>
+	<entry key="registration.modifyPersonalData.completed.detail">The new personal data has saved successfully.</entry>
+</properties>

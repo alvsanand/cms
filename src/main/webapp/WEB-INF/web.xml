@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_4.xsd">
+
+	<display-name>alvsanand</display-name>
+
+	<!-- *************************** -->
+	<!-- Security configuration -->
+	<!-- *************************** -->
+	<filter>
+		<display-name>ExceptionFilter</display-name>
+		<filter-name>ExceptionFilter</filter-name>
+		<filter-class>es.alvsanand.webpage.web.error.ExceptionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ExceptionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- *************************** -->
+	<!-- *************************** -->
+
+	<!-- ************* -->
+	<!-- Mobile filter -->
+	<!-- ************* -->
+	<context-param>
+		<param-name>es.alvsanand.webpage.web.mobile.config.MobileConfig</param-name>
+		<param-value>/WEB-INF/mobile-config.xml</param-value>
+	</context-param>
+	<filter>
+		<display-name>MobileFilter</display-name>
+		<filter-name>MobileFilter</filter-name>
+		<filter-class>es.alvsanand.webpage.web.filters.MobileFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MobileFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- *************************** -->
+	<!-- *************************** -->
+
+	<!-- *************************** -->
+	<!-- Security configuration -->
+	<!-- *************************** -->
+	<context-param>
+		<param-name>es.alvsanand.webpage.security.filter.SecurityFilter.ConfigFile</param-name>
+		<param-value>/WEB-INF/security-config.xml</param-value>
+	</context-param>
+	<filter>
+		<filter-name>Security Filter</filter-name>
+		<filter-class>es.alvsanand.webpage.security.filter.SecurityFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Security Filter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	<!-- *************************** -->
+	<!-- *************************** -->
+
+	<!-- ****************************************** -->
+	<!-- FileUpload Filter configuration -->
+	<!-- ****************************************** -->
+	<filter>
+		<filter-name>FileUpload Filter</filter-name>
+		<filter-class>es.alvsanand.webpage.web.fileupload.filter.FileUploadFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>FileUpload Filter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+	<!-- ****************************************** -->
+	<!-- ****************************************** -->
+
+	<!-- ****************************************** -->
+	<!-- Dynamic Content Servlet -->
+	<!-- ****************************************** -->
+	<servlet>
+		<servlet-name>Dynamic Content Servlet</servlet-name>
+		<servlet-class>es.alvsanand.webpage.web.dynamicContent.servlet.DynamicContentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Dynamic Content Servlet</servlet-name>
+		<url-pattern>/dynamicContent/*</url-pattern>
+	</servlet-mapping>
+	<!-- ****************************************** -->
+	<!-- ****************************************** -->
+
+	<!-- *************************** -->
+	<!-- URL rewriting configuration -->
+	<!-- *************************** -->
+	<filter>
+		<filter-name>Pretty Filter</filter-name>
+		<filter-class>com.ocpsoft.pretty.PrettyFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Pretty Filter</filter-name>
+		<url-pattern>*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+	<!-- *************************** -->
+	<!-- *************************** -->
+
+	<!-- *************************** -->
+	<!-- JSF configuration -->
+	<!-- *************************** -->
+	<!-- ***** GAE 1.3.0 appears to handle server-side state saving. ***** -->
+	<context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>server</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+		<param-value>.xhtml</param-value>
+	</context-param>
+	<!-- GAE Bug 1506 JSP 2.1 API but 2.0 Implementation -->
+	<context-param>
+		<param-name>com.sun.faces.expressionFactory</param-name>
+		<param-value>com.sun.el.ExpressionFactoryImpl</param-value>
+	</context-param>
+	<context-param>
+		<param-name>com.sun.faces.validateXml</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<!-- ***** Accommodate Single-Threaded Requirement of Google AppEngine -->
+	<context-param>
+		<param-name>com.sun.faces.enableThreading</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>primefaces.skin</param-name>
+		<param-value>none</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+		<param-value>6LeXsLwSAAAAACGfP2Ivj-ZqLrutP6VePSezYvfT</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+		<param-value>6LeXsLwSAAAAAAReiKJzct2mEvq6auScTKQ_4VlL</param-value>
+	</context-param>
+	<filter>
+        <filter-name>Character Encoding Filter</filter-name>
+        <filter-class>es.alvsanand.webpage.web.filters.CharacterEncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Character Encoding Filter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>	
+	<servlet>
+		<servlet-name>Resource Servlet</servlet-name>
+		<servlet-class>org.primefaces.resource.ResourceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Resource Servlet</servlet-name>
+		<url-pattern>/primefaces_resource/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	<!-- ********************** -->
+	<!-- ********************** -->
+
+	<session-config>
+		<tracking-mode>COOKIE</tracking-mode>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- *********** -->
+	<!-- Error pages -->
+	<!-- *********** -->
+	<error-page>
+		<error-code>400</error-code>
+		<location>/error/400</location>
+	</error-page>
+	<error-page>
+		<error-code>401</error-code>
+		<location>/error/401</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error/403</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404</location>
+	</error-page>
+	<error-page>
+		<error-code>405</error-code>
+		<location>/error/405</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500</location>
+	</error-page>
+	<error-page>
+		<error-code>501</error-code>
+		<location>/error/501</location>
+	</error-page>
+	<error-page>
+		<error-code>503</error-code>
+		<location>/error/503</location>
+	</error-page>
+
+	<!-- Catch exceptions -->
+	<error-page>
+		AccessDeniedException
+		<exception-type>es.alvsanand.webpage.security.exception.BadCredentialsException</exception-type>
+		<location>/error/badCredentials</location>
+	</error-page>
+	<error-page>
+		<exception-type>es.alvsanand.webpage.security.exception.AccessDeniedException</exception-type>
+		<location>/error/accessDenied</location>
+	</error-page>
+	<error-page>
+		<exception-type>es.alvsanand.webpage.security.exception.UsernameNotFoundException</exception-type>
+		<location>/error/usernameNotFound</location>
+	</error-page>
+	<error-page>
+		<exception-type>es.alvsanand.webpage.security.exception.UsernameNotAcceptedException</exception-type>
+		<location>/error/usernameNotAccepted</location>
+	</error-page>
+	<error-page>
+		<exception-type>es.alvsanand.webpage.security.exception.UsernameDisabledException</exception-type>
+		<location>/error/usernameDisabled</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error/unknow</location>
+	</error-page>
+	<!-- *********** -->
+	<!-- *********** -->
+</web-app>

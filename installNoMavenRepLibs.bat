@@ -1,0 +1,3 @@
+start mvn install:install-file -DgroupId=com.google.gdata -DartifactId=gdata-java-client -Dversion=1.42.0 -Dpackaging=jar -Dfile=./noRepositoryLibs/gdata-java-client.1.42.0.jar
+start mvn install:install-file -DgroupId=com.google.common -DartifactId=google-collect -Dversion=1.0-rc1 -Dpackaging=jar -Dfile=./noRepositoryLibs/google-collect-1.0-rc1.jar
+start mvn install:install-file -DgroupId=org.compass-project -DartifactId=compass -Dversion=2.3.0 -Dpackaging=jar -Dfile=./noRepositoryLibs/compass-2.3.0.jar

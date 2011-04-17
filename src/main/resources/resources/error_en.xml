@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Error localization</comment>
+
+	<entry key="error.title">Server error</entry>
+	<entry key="error.header">Server error</entry>
+
+	<entry key="error.title.400">Bad Request</entry>
+	<entry key="error.description.400">The request contains bad syntax or cannot be fulfilled.</entry>
+	<entry key="error.title.401">Unauthorized</entry>
+	<entry key="error.description.401">Authentication is needed but has failed or not yet been provided.</entry>
+	<entry key="error.title.403">Access is denied</entry>
+	<entry key="error.description.403">The request is denied for actual user.</entry>
+	<entry key="error.title.404">Not Found</entry>
+	<entry key="error.description.404">The requested resource could not be found.</entry>
+	<entry key="error.title.405">Method Not Allowed</entry>
+	<entry key="error.description.405">A request was made of a resource using a request method not supported by that resource.</entry>
+	<entry key="error.title.500">Internal Server Error</entry>
+	<entry key="error.description.500">The server encountered an unexpected condition which prevented it from fulfilling the request.</entry>
+	<entry key="error.title.501">Not Implemented</entry>
+	<entry key="error.description.501">The server either does not recognize the request method, or it lacks the ability to fulfill the request.</entry>
+	<entry key="error.title.503">Service Unavailable</entry>
+	<entry key="error.description.503">The server is currently unavailable (because it is overloaded or down for maintenance).</entry>
+	<entry key="error.title.unknow">Unknown server error</entry>
+	<entry key="error.description.unknow">The server has launch an unknown error</entry>
+	<entry key="error.title.usernameNotFound">User not found</entry>
+	<entry key="error.description.usernameNotFound">The user has been found</entry>
+	<entry key="error.title.usernameNotAccepted">User not accepted</entry>
+	<entry key="error.description.usernameNotAccepted">The user has not been accepted yet</entry>
+	<entry key="error.title.usernameDisabled">User disabled</entry>
+	<entry key="error.description.usernameDisabled">The user has been disabled</entry>
+
+	<entry key="error.title.accessDenied">Access Denied</entry>
+	<entry key="error.description.accessDenied">The access to this page is denied.</entry>
+
+	<entry key="error.title.badCredentials">Bad credentials</entry>
+	<entry key="error.description.badCredentials">The username or password inserted are incorrect.</entry>
+
+	<entry key="error.form.validation.requiredField">The field is required</entry>
+	<entry key="error.form.validation.minLength.5">The field must have at least 5 characters</entry>
+	<entry key="error.form.validation.minLength.3">The field must have at least 3 characters</entry>
+
+	<entry key="error.form.validation.regularExpresion.email">The field must be a valid email</entry>
+	
+	<entry key="error.form.validation.privacy">You must agree the term of use</entry>
+
+
+	<entry key="error.form.validation.validateArticleName.summary">Name incorrect</entry>
+	<entry key="error.form.validation.validateArticleName.detail">Article with this name is already used</entry>
+
+	<entry key="error.form.validation.loadArticleBulkUpload.unknown.summary">Unknown error</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.unknown.detail">An unknown error happened while loading the articles</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badFile.summary">File is incorrect</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badFile.detail">The XML file that contains the articles is not well formed</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badContent.summary">Articles are incorrect</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badContent.detail">The articles of the XML file are not correct</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badName.summary">Article Name incorrect</entry>
+	<entry key="error.form.validation.loadArticleBulkUpload.badName.detail">Article[{0}] name is already used </entry>
+
+	<entry key="error.form.validation.validateUserName.summary">Name incorrect</entry>
+	<entry key="error.form.validation.validateUserName.detail">User with this name is already used</entry>
+
+	<entry key="error.form.validation.validateTagName.summary">Name incorrect</entry>
+	<entry key="error.form.validation.validateTagName.detail">Tag with this name is already used</entry>
+
+	<entry key="error.form.validation.validateRePassword.summary">Passwords are incorrect</entry>
+	<entry key="error.form.validation.validateRePassword.detail">The password and its repetition must be equal</entry>
+
+	<entry key="error.form.validation.validateCaptcha.summary">Words incorrect</entry>
+	<entry key="error.form.validation.validateCaptcha.detail">The words do not correspond to the Captcha image</entry>
+
+	<entry key="error.activate.registrationHash.summary">Activation failed</entry>
+	<entry key="error.activate.registrationHash.detail">The activation code is incorrect</entry>
+
+	<entry key="error.activate.activated.summary">Activation failed</entry>
+	<entry key="error.activate.activated.detail">The user has already activated</entry>
+
+	<entry key="error.resetPassword.loginName.summary">Password reseting failed</entry>
+	<entry key="error.resetPassword.loginName.detail">It does not exist an user with this login name</entry>
+
+	<entry key="error.modifyPersonalData.fileUpload.summary">Upload failed</entry>
+	<entry key="error.modifyPersonalData.fileUpload.detail">An error has occurred while uploading the image</entry>
+
+	<entry key="error.admin.image.fileUpload.summary">No photo</entry>
+	<entry key="error.admin.image.fileUpload.detail">You need to upload a photo before submit the form</entry>
+</properties>

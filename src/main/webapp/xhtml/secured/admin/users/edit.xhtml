@@ -1,0 +1,96 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+		
+		<ui:param name="pageTitle" value="#{bundle_admin['admin.user.title']}" />
+		<ui:param name="contentHeader" value="#{bundle_admin['admin.user.header']}" />
+		
+		<ui:define name="content">
+			<ui:decorate template="/xhtml/templates/content.xhtml">
+				<!-- header content here  -->
+				<ui:define name="pageName">
+	                #{contentHeader}
+	            </ui:define>
+	
+				<!-- insert content here -->
+				<ui:define name="pageContent">
+					<f:view contentType="text/html">
+						<h:form prependId="false">
+							<h:inputHidden value="#{userBean.idUser}"/>
+							<h:panelGrid columns="3" width="100%" headerClass="editHeader" columnClasses="editContentLabel,editContent,editContentMessageError">
+			            		<f:facet name="header">
+							    	<h:outputLabel value="#{bundle_admin['admin.user.edit.title']}" rendered="#{! empty userBean.name}"/>
+							    	<h:outputLabel value="#{bundle_admin['admin.user.create.title']}" rendered="#{empty userBean.name}"/>
+							  	</f:facet>
+					           
+					            <h:outputLabel>
+					            	 <strong>#{bundle_admin['admin.user.loginName']}</strong>
+					           	</h:outputLabel>
+								<h:inputText id="loginName" value="#{userBean.loginName}" required="true" 
+									requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+									validatorMessage="#{bundle_error['error.form.validation.minLength.5']}"
+									maxlength="20">
+									<f:validateLength minimum="5" maximum="20" />
+								</h:inputText>
+								<p:message for="loginName"/>
+								
+								<h:outputLabel>
+					            	 <strong>#{bundle_admin['admin.user.email']}</strong>
+					           	</h:outputLabel>
+								<h:inputText id="email" value="#{userBean.email}" required="true"
+									requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+									maxlength="64">
+									<f:validator validatorId="regExpValidator"/>
+									<f:attribute name="regularExpression" value="#{bundle_general['regularExpresion.email']}"/>
+									<f:attribute name="messageError" value="#{bundle_error['error.form.validation.regularExpresion.email']}"/>
+								</h:inputText>
+								<p:message for="email"/>
+								
+								<h:outputLabel>
+					            	 <strong>#{bundle_admin['admin.user.name']}</strong>
+					           	</h:outputLabel>
+								<h:inputText id="name" value="#{userBean.name}" required="true" 
+									requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+									validatorMessage="#{bundle_error['error.form.validation.minLength.2']}"
+									maxlength="64">
+									<f:validateLength minimum="2" maximum="64" />
+								</h:inputText>
+								<p:message for="name"/>
+							
+								<h:outputLabel>
+					            	 <strong>#{bundle_admin['admin.user.surname']}</strong>
+					           	</h:outputLabel>
+								<h:inputText id="surname" value="#{userBean.surname}" required="true"
+									requiredMessage="#{bundle_error['error.form.validation.requiredField']}"
+									validatorMessage="#{bundle_error['error.form.validation.minLength.5']}"
+									maxlength="128">
+									<f:validateLength minimum="5" maximum="128" />
+								</h:inputText>
+								<p:message for="surname"/>
+							
+								<h:outputLabel>
+					            	 <strong>#{bundle_admin['admin.user.roleName']}</strong>
+					           	</h:outputLabel>
+								<h:selectOneMenu id="selectCar"  value="#{userBean.roleName}">
+									<f:selectItem itemValue="ROLE_ADMIN" itemLabel="#{bundle_admin['admin.user.roleName.ROLE_ADMIN']}"/>
+									<f:selectItem itemValue="ROLE_PUBLISHER_USER" itemLabel="#{bundle_admin['admin.user.roleName.ROLE_PUBLISHER_USER']}"/>
+									<f:selectItem itemValue="ROLE_GENERIC_USER" itemLabel="#{bundle_admin['admin.user.roleName.ROLE_GENERIC_USER']}"/>
+								</h:selectOneMenu>
+								<p:message for="selectCar"/>
+				          	</h:panelGrid>
+					    	
+					    	<div class="extraContent">
+						       	<p:commandButton id="saveBtn" ajax="false" value="#{bundle_admin['admin.save']}" action="#{userBean.saveUser}"/>
+						       	<p:spacer width="20"/>
+						    	<p:commandButton id="deleteBtn" ajax="false" value="#{bundle_admin['admin.delete']}" action="#{userBean.deleteUser}" rendered="#{! empty userBean.name}"/>
+						       	<p:spacer width="20"/>
+						    	<p:button id="backBtn" value="#{bundle_admin['admin.back']}" outcome="pretty:listUser"/>
+						    </div>
+						</h:form>
+					</f:view>
+				</ui:define>
+			</ui:decorate>
+		</ui:define>
+</ui:composition>

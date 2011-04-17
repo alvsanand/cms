@@ -1,0 +1,10 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:p="http://primefaces.prime.com.tr/ui" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<h:form prependId="false" id="termsOfUseForm">
+		<p:dialog header="#{bundle_general['main.termsOfUse.title']}" width="600" height="400" id="termsOfUse" widgetVar="termsOfUse" modal="true" >
+			<h:outputText escape="false" value="#{bundle_general['main.termsOfUse.main']}"/>
+		</p:dialog>
+	</h:form>
+</f:view>

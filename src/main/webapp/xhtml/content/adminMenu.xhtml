@@ -1,0 +1,28 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:sec="http://alvsanand.appspot.com/security/facelets/tags">
+	<h3>#{bundle_menu['menu.admin.title']}</h3>
+	<div class="content">
+		<ul class="linklist">
+			<li class="first">
+				<h:link outcome="pretty:listArticle" value="#{bundle_menu['menu.admin.articles.title']}" />
+			</li>
+			<li>
+				<h:link outcome="pretty:listTag" value="#{bundle_menu['menu.admin.tags.title']}" />
+			</li>
+			<li>
+				<h:link outcome="pretty:listAlbums" value="#{bundle_menu['menu.admin.image.title']}" />
+			</li>
+			<sec:ifAnyGranted roles="ROLE_DEVELOPER,ROLE_ADMIN">
+			<li>
+				<h:link outcome="pretty:listUser" value="#{bundle_menu['menu.admin.users.title']}" />
+			</li>
+			<li>
+				<h:link outcome="pretty:eraseCache" value="#{bundle_menu['menu.admin.eraseCache.title']}" />
+			</li>
+			</sec:ifAnyGranted>
+		</ul>
+	</div>
+</f:view>

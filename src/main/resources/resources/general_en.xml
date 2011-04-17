@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>General localization</comment>
+
+	<entry key="main.title">AlvSanAnd.appspot.com</entry>
+
+	<entry key="header.title">AlvSanAnd.appspot.com</entry>
+	<entry key="header.by">By Alvaro Santos</entry>
+
+	<entry key="footer.termsOfUse">Terms of Use</entry>
+	<entry key="footer.privacy">All rights reserved.</entry>
+	<entry key="footer.designBy"><![CDATA[Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a>.]]></entry>
+	<entry key="footer.appengine">Google App Engine</entry>
+	<entry key="footer.jsf">Primefaces - JSF 2.0 </entry>
+	<entry key="footer.jpa">Datanucleus - JPA</entry>
+	<entry key="footer.imageHosting">Picasa </entry>
+
+	<entry key="sessionPanel.main">Session</entry>
+
+	<entry key="sessionPanel.user">User</entry>
+	<entry key="sessionPanel.username">Username</entry>
+	<entry key="sessionPanel.password">Password</entry>
+	<entry key="sessionPanel.forgetPassword">Forgotten your password?</entry>
+
+	<entry key="sessionPanel.login">Login</entry>
+	<entry key="sessionPanel.logout">Logout</entry>
+	<entry key="sessionPanel.modifyPersonalData">Personal data</entry>
+
+	<entry key="sessionPanel.registerMessage">Don't have a alvsanand.appspot.com ID?</entry>
+	<entry key="sessionPanel.register">Register</entry>
+	<entry key="sessionPanel.googleAccount">Use a Google account</entry>
+
+	<entry key="regularExpresion.email">[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+</entry>
+
+	<entry key="main.termsOfUse.title">Terms of Use</entry>
+	<entry key="main.termsOfUse.main"><![CDATA[
+		<h2>Privacy Policy</h2> 
+
+		<p>When you provide personal information through alvsanand.appspot.com web site (hereinafter the "Site"), Alvsanand respects your privacy and her rights under the law on data protection personal. It is therefore important to understand what information we collect about you during your visit and what we do with that information. His visit to the Website is subject to this Policy on Personal Data Processing.</p>
+		<p>communicate to others your personal information, except as provided in this Privacy Policy and Data or notices provided for each case in which personal data are collected.</p>
+		<p>Alvsanand may disclose any information including personal data, as it deems necessary to comply with legal obligations.</p>
+		<p>Alvsanand not collect personal information ABOUT YOU UNLESS YOU HAVE AT LEAST FOURTEEN (14) YEARS. IF LESS THAN THIS AGE, must refrain from providing PERSONAL INFORMATION.</p>
+		
+		<ol>
+		<li>
+		<h3>Collection and Use of Information</h3>
+		<p>By providing your personal data in the Web Site, you express your agreement to the processing and communication of personal data in the manner contemplated in this Policy on Personal Data Processing. If you prefer Alvsanand not collect personal information about you, please do not provide it to us.</p>
+		<p>Alvsanand may use the personal information you provide in dissociated form (without personal identification) for internal purposes, such as the production of statistics. So Alvsanand may collect, store or accumulate certain non-personal information regarding your use of the Website, for example, information that indicates which of our pages are most popular.</p>
+		</li>
+		
+		<li>
+		<h3>Cookies and Log Files</h3>
+		<p>Alvsanand may place a cookie on the hard drive of your computer to recognize it as a returning user and personalize your use of the Website. The cookie is saved on the hard drive of your computer until you delete it. May cause your browser to notify you of the presence of or to reject cookies automatically. If you reject cookies you can still use the Website, although this may involve limiting the use of some of the benefits or prevent the proper functioning of the Website.</p>
+		</li>
+		
+		<li>
+		<h3>Third</h3>
+		<p>Alvsanand may hire third parties to perform functions on its behalf in connection with the purposes for which they could collect their personal data, for example, analyze the information provided, host websites or provide integrated logistics services. These third parties may have access to personal information needed to perform their functions, but may not use such information for any other purpose and regulate our relations with such parties in the manner required by applicable law on data protection personal.</p>
+		</li>
+		
+		<li>
+		<h3>Links</h3>
+		<p>Web Site may contain links to or from other websites. Should know that Alvsanand not responsible for the practices in the field of personal data, followed by other web sites. The current policy regarding the processing of personal data applies only to information we collect on the Website. We advise you to read the policies on processing of personal data from other websites you link to or from our Web Site or otherwise visit.</p>
+		</li>
+		
+		<li>
+		<h3>Security</h3>
+		<p>Alvsanand has implemented various measures to protect the security of your personal information, both on line and off line.</p>
+		</li>
+		
+		<li>
+		<h3>Notification of Changes</h3>
+		<p>This Policy Personal Data Treatment Alvsanand may be changed at any time and shall be effective as of that time. In this case, the revised policy will be included on the website and if you are a registered user, we will send it via email. IF YOU REGISTERED AND DO NOT RESPOND TO THIS MAIL WITHIN THIRTY (30) DAYS, YOUR SILENCE IS THAT YOU CONSENT TO THE NEW POLICY ON PERSONAL DATA PROCESSING.</p>
+		</li>
+		
+		<li>
+		<h3>Rights of access, rectification, cancellation and opposition</h3>
+		<p>You are entitled to exercise their rights of access, rectification or deletion of data or object to the processing of personal data by writing to Weblogs SL, Calle Tramontana 47, 28223 Pozuelo de Alarcón (Madrid), Spain a photocopy of your ID on both sides, the request that specific request, signed and dated, and its address for notices.</p>
+		</li>
+		
+		<li>
+		<h3>File Manager</h3>
+		<p>Alvsanand, with email alvsanand@gmail.com lives in 28044 Madrid (Madrid), is responsible for the file or files containing the information that you provide.</p>
+		</li>
+		</ol>
+	]]>
+	</entry>
+
+	<entry key="login.title">Login</entry>
+	<entry key="login.header">Login</entry>
+	
+	<entry key="login.legend">Init sessión</entry>	
+	<entry key="login.username">Username</entry>
+	<entry key="login.password">Password</entry>
+	<entry key="login.forgetPassword">Forgotten your password?</entry>	
+	<entry key="login.submit">Enter</entry>
+	<entry key="login.register.text"><![CDATA[
+		<h2>What is AlvSanAnd.appspot.com</h2>
+		<p>It is a personal blog where you can read articles on different subjects and seasons than sure that you will find to your liking.</p>
+		<h2>Are you still not an AlvSanAnd.appspot.com user?</h2>
+		<p>As a registered user you could, among other things:</p>
+		<ul>
+		<li>
+		<strong>Post comments</strong>
+		<br/>
+		You can write your opinion about the stories published or about other comments.
+		</li>
+		<li>
+		<strong>Vote for your favorite stories</strong>
+		<br/>
+		You can vote stories that you liked more and you consider that have some importance.
+		</li>
+		</ul>
+		<strong><a href="{0}">Sign up now</a></strong>
+	]]>
+	</entry>
+</properties>

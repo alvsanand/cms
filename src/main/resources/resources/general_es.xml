@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>General localization</comment>
+
+	<entry key="main.title">AlvSanAnd.appspot.com</entry>
+
+	<entry key="header.title">AlvSanAnd.appspot.com</entry>
+	<entry key="header.by">Por Álvaro Santos</entry>
+
+	<entry key="footer.termsOfUse">Privacidad</entry>
+	<entry key="footer.privacy">Derechos reservados.</entry>
+	<entry key="footer.designBy"><![CDATA[Diseñado por <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a>.]]></entry>
+	<entry key="footer.appengine">Google App Engine</entry>
+	<entry key="footer.jsf">Primefaces - JSF 2.0 </entry>
+	<entry key="footer.jpa">Datanucleus - JPA </entry>
+	<entry key="footer.imageHosting">Picasa </entry>
+
+	<entry key="sessionPanel.main">Sesión</entry>
+
+	<entry key="sessionPanel.user">Usuario</entry>
+	<entry key="sessionPanel.username">Nombre</entry>
+	<entry key="sessionPanel.password">Contraseña</entry>
+	<entry key="sessionPanel.forgetPassword">¿Has olvidado la contraseña?</entry>
+
+	<entry key="sessionPanel.login">Entrar</entry>
+	<entry key="sessionPanel.logout">Salir</entry>
+	<entry key="sessionPanel.modifyPersonalData">Datos Personales</entry>
+
+	<entry key="sessionPanel.registerMessage">¿No tienes una cuenta en alvsanand.appspot.com?</entry>
+	<entry key="sessionPanel.register">Registrate</entry>
+	<entry key="sessionPanel.googleAccount">Usa una cuenta Google</entry>
+
+	<entry key="regularExpresion.email">[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+</entry>
+
+	<entry key="main.termsOfUse.title">Terminos de uso</entry>
+	<entry key="main.termsOfUse.main"><![CDATA[
+		<h2>Política de privacidad</h2>
+
+		<p>Cuando usted nos facilita información de carácter personal a través del sitio web alvsanand.appspot.com (en adelante, el "Sitio Web"), Alvsanand respeta su intimidad y los derechos que le reconoce la normativa sobre protección de datos de carácter personal. Por ello, es importante que entienda que información recabamos acerca de usted durante su visita y qué hacemos con dicha información. Su visita al Sitio Web está sujeta a la presente Política sobre Tratamiento de Datos Personales.</p>
+		<p>No comunicaremos a terceros su información de carácter personal, salvo en la forma establecida en esta Política sobre Privacidad y Tratamiento de Datos o en los avisos establecidos para cada supuesto en que se recojan sus datos personales.</p>
+		<p>Alvsanand podrá revelar cualquier información, incluyendo datos de carácter personal, que considere necesaria para dar cumplimiento a las obligaciones legales.</p>
+		<p>Alvsanand NO RECABARA INFORMACIÓN PERSONAL ACERCA DE USTED A MENOS QUE TENGA COMO MÍNIMO CATORCE (14) AÑOS. SI FUERA MENOR DE DICHA EDAD, DEBERÁ ABSTENERSE DE FACILITARNOS INFORMACIÓN DE CARÁCTER PERSONAL.</p>
+		
+		<ol>
+		<li>
+		<h3>Recogida y Uso de la Información</h3>
+		<p>Al facilitarnos sus datos de carácter personal en el Sitio Web, está expresando su aceptación al tratamiento y comunicación de sus datos personales en la forma contemplada en esta Política sobre Tratamiento de Datos Personales. Si prefiere que Alvsanand no recabe información personal acerca de usted, rogamos que no nos la facilite.</p>
+		<p>Alvsanand podrá usar la información de carácter personal que nos facilite de forma disociada (sin identificación personal) para fines internos, como puede ser la elaboración de estadísticas. Así, Alvsanand podrá recabar, almacenar o acumular determinada información de carácter no personal referente a su uso del Sitio Web, como por ejemplo aquella información que indique cuáles de nuestras páginas son más populares.</p>
+		</li>
+		
+		<li>
+		<h3>Cookies y Archivos de Registro</h3>
+		<p>Alvsanand podrá colocar una "cookie" en el disco duro de su ordenador a fin de reconocerlo como usuario recurrente y personalizar su uso del Sitio Web. La cookie se guardará en el disco duro de su ordenador hasta que usted la elimine. Podrá hacer que su navegador le avise de la presencia de cookies o que los rechace automáticamente. Si rechaza las cookies podrá seguir usando el Sitio Web, si bien ello podrá suponer la limitación en el uso de algunas de las prestaciones o impedir el buen funcionamiento del Sitio Web.</p>
+		</li>
+		
+		<li>
+		<h3>Terceros</h3>
+		<p>Alvsanand podrá contratar a terceros para que desempeñen funciones en su nombre en relación con los fines para los que se puedan recoger sus datos personales, como por ejemplo, analizar la información proporcionada, alojar sitios web o prestar servicios integrados de logística. Dichos terceros podrán tener acceso a la información de carácter personal necesaria para el desempeño de sus funciones, si bien no podrán utilizar dicha información para ningún otro fin y regularemos nuestras relaciones con tales terceros en la manera exigida por la normativa aplicable sobre protección de datos de carácter personal.</p>
+		</li>
+		
+		<li>
+		<h3>Enlaces</h3>
+		<p>El Sitio Web podrá contener enlaces a o desde otros sitios web. Debe saber que el Alvsanand no se responsabiliza de las prácticas que, en materia de tratamiento de datos personales, siguen otros sitios web. La presente Política sobre Tratamiento de Datos Personales es de aplicación solamente a la información que recabamos en el Sitio Web. Le aconsejamos leer las políticas sobre tratamiento de datos personales de otros sitios web con los que enlace a o desde nuestro Sitio Web o que visite de otra forma.</p>
+		</li>
+		
+		<li>
+		<h3>Seguridad</h3>
+		<p>Alvsanand ha implantado diversas medidas para proteger la seguridad de su información personal, tanto "on line" como "off line".</p>
+		</li>
+		
+		<li>
+		<h3>Notificación de Cambios</h3>
+		<p>La presente Política sobre Tratamiento de Datos Personales podrá ser modificada por Alvsanand en cualquier momento y se entenderá vigente a partir de dicho momento. En dicho caso, se incluirá la política revisada en el Sitio Web y si usted es un usuario registrado, se la enviaremos por correo electrónico. SI ES USUARIO REGISTRADO Y NO RESPONDE AL REFERIDO CORREO ELECTRÓNICO EN UN PLAZO DE TREINTA (30) DÍAS, SU SILENCIO SE ENTENDERÁ COMO CONSENTIMIENTO A LA NUEVA POLÍTICA SOBRE TRATAMIENTO DE DATOS PERSONALES.</p>
+		</li>
+		
+		<li>
+		<h3>Derechos de Acceso, Rectificación, Cancelación y Oposición</h3>
+		<p>Tiene usted derecho a ejercitar sus derechos de acceso, rectificación o cancelación de sus datos u oponerse al tratamiento de sus datos personales, comunicándolo por escrito a Weblogs S.L., en Calle Tramontana 47, 28223 Pozuelo de Alarcón (Madrid), España, adjuntando una fotocopia de su D.N.I. por ambas caras, la petición en que se concreta su solicitud, fechada y firmada, así como su domicilio a efectos de notificaciones.</p>
+		</li>
+		
+		<li>
+		<h3>Responsable del Fichero</h3>
+		<p>Alvsanand, con correo electrónico alvsanand@gmail.com, reside en 28044 Madrid (Madrid), será el responsable del fichero o ficheros que contengan la información que usted nos facilite.</p>
+		</li>
+		</ol>
+	]]>
+	</entry>
+	
+	<entry key="login.title">Entrar</entry>
+	<entry key="login.header">Entrar</entry>
+	
+	<entry key="login.legend">Iniciar sesión</entry>	
+	<entry key="login.username">Usuario</entry>
+	<entry key="login.password">Contraseña</entry>
+	<entry key="login.forgetPassword">¿Has olvidado la contraseña?</entry>
+	<entry key="login.submit">Entrar</entry>
+	<entry key="login.register.text"><![CDATA[
+	<h2>¿Qué es AlvSanAnd.appspot.com?</h2>
+	<p>Es un blog personal dónde podrás leer artículos de diferentes temas y epocas que seguro que te resultarán de tu agrado.</p>
+	<h2>¿Todavía no eres usuario de AlvSanAnd.appspot.com?</h2>
+	<p>Como usuario registrado podrás, entre otras cosas:</p>
+	<ul>
+	<li>
+	<strong>Escribir comentarios</strong>
+	<br/>
+	Puedes escribir tu opinión sobre las articulos publicados o sobre otros comentarios.
+	</li>
+	<li>
+	<strong>Votar tus artículos favoritos</strong>
+	<br/>
+	Podrás votar aquellos artículos que te han gustado más y que consideras que tienen cierta relevancia.
+	</li>
+	</ul>
+	<strong><a href="{0}">Regístrate ahora</a></strong>
+	]]>
+	</entry>
+</properties>

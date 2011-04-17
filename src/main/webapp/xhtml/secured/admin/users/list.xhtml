@@ -1,0 +1,90 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:cmm="http://alvsanand.appspot.com/common/facelets/tags">
+		
+		<ui:param name="pageTitle" value="#{bundle_admin['admin.user.title']}" />
+		<ui:param name="contentHeader" value="#{bundle_admin['admin.user.header']}" />
+		
+		<ui:define name="content">
+			<ui:decorate template="/xhtml/templates/content.xhtml">
+				<!-- header content here  -->
+				<ui:define name="pageName">
+	                #{contentHeader}
+	            </ui:define>
+	
+				<!-- insert content here -->
+				<ui:define name="pageContent">
+					<f:view contentType="text/html">
+						<h:form prependId="false">					
+							<p:dataTable value="#{userBean.lazyModel}" var="actualUser" dynamic="true" lazy="true" paginator="true" rows="10"
+							 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
+							 rowsPerPageTemplate="5,10,15" paginatorPosition="bottom">
+								<p:column>
+				            		<h:selectBooleanCheckbox value="#{userBean.selectedUsers[actualUser.idUser]}" disabled="#{!(actualUser.canBeAccepted and actualUser.canBeRejected)}"/>
+								</p:column>
+								<p:column>
+				            		<f:facet name="header">
+								    	<h:outputText value="#{bundle_admin['admin.user.name']}" />
+								  	</f:facet>
+					                <h:outputText value="#{actualUser.name}"/>
+								</p:column>
+								<p:column>
+				            		<f:facet name="header">
+								    	<h:outputText value="#{bundle_admin['admin.user.surname']}" />
+								  	</f:facet>
+					                <h:outputText value="#{actualUser.surname}"/>
+								</p:column>
+								<p:column>
+				            		<f:facet name="header">
+								    	<h:outputText value="#{bundle_admin['admin.user.lastLoginDate']}" />
+								  	</f:facet>
+					                <h:outputText value="#{actualUser.lastLoginDate}">
+					                	<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />				
+					                </h:outputText>
+								</p:column>
+								<p:column>
+				            		<f:facet name="header">
+								    	<h:outputText value="#{bundle_admin['admin.user.state']}" />
+								  	</f:facet>
+								  	<h:outputText value="#{bundle_admin[cmm:replace('admin.user.state.XXX.text', 'XXX', actualUser.state)]}"/>
+								</p:column>
+								<p:column>
+									<p:commandLink ajax="false" action="#{userBean.deleteUser}" value="#{bundle_admin['admin.delete']}">
+   										<f:setPropertyActionListener target="#{userBean.idUser}" value="#{actualUser.idUser}" />      										
+   									</p:commandLink>     									
+     								<p:spacer width="20"/>
+									<p:commandLink ajax="false" action="#{userBean.editUser}" value="#{bundle_admin['admin.edit']}">
+   										<f:setPropertyActionListener target="#{userBean.idUser}" value="#{actualUser.idUser}" />      										
+   									</p:commandLink>
+							    	<p:spacer width="20" rendered="#{actualUser.canBeEnabled}"/>
+							    	<p:commandLink ajax="false" action="#{userBean.updateStateUser}" value="#{bundle_admin['admin.user.restore']}" rendered="#{actualUser.canBeEnabled}">
+   										<f:setPropertyActionListener target="#{userBean.idUser}" value="#{actualUser.idUser}" />
+   										<f:setPropertyActionListener target="#{userBean.state}" value="4" />      										
+   									</p:commandLink>
+							    	<p:spacer width="20" rendered="#{actualUser.canBeDisabled}"/>
+							    	<p:commandLink ajax="false" action="#{userBean.updateStateUser}" value="#{bundle_admin['admin.user.disable']}" rendered="#{actualUser.canBeDisabled}">
+										<f:setPropertyActionListener target="#{userBean.idUser}" value="#{actualUser.idUser}" />
+   										<f:setPropertyActionListener target="#{userBean.state}" value="3" />      										
+									</p:commandLink>
+								</p:column>
+					    	</p:dataTable>
+					    	
+					    	<div class="extraContent">
+						    	<p:commandButton ajax="false" action="#{userBean.updateStateUsers}" value="#{bundle_admin['admin.user.accept']}">
+									<f:setPropertyActionListener target="#{userBean.state}" value="1" />      										
+								</p:commandButton> 
+						    	<p:spacer width="20"/>
+						    	<p:commandButton ajax="false" action="#{userBean.updateStateUsers}" value="#{bundle_admin['admin.user.reject']}">
+									<f:setPropertyActionListener target="#{userBean.state}" value="2" />
+								</p:commandButton>
+							</div> 							
+					    </h:form>
+					</f:view>
+				</ui:define>
+			</ui:decorate>
+		</ui:define>
+</ui:composition>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://alvsanand.appspot.com/security/config" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sec="http://alvsanand.appspot.com/security/config">
+    <xs:element name="securityConfig" type="sec:securityConfigType"/>
+    
+    <xs:complexType name="securityConfigType">
+    	<xs:sequence>
+    		<xs:element name="interceptURL" type="sec:interceptURLType" minOccurs="1" maxOccurs="unbounded"/>
+    		<xs:element name="defaultURL" type="sec:defaultURLType" minOccurs="1" maxOccurs="1"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="interceptURLType">
+    	<xs:sequence minOccurs="1" maxOccurs="1">
+    		<xs:element name="hasAllRoles" type="sec:hasAllRolesType" maxOccurs="1" minOccurs="0"/>
+    		<xs:element name="hasAnyRole" type="sec:hasAnyRoleType" maxOccurs="1" minOccurs="0"/>
+    		<xs:element name="hasNoRole" type="sec:hasNoRoleType" maxOccurs="1" minOccurs="0"/>
+    		<xs:element name="authenticated" type="sec:authenticatedType" maxOccurs="1" minOccurs="0"/>
+    	</xs:sequence>
+    	<xs:attribute name="pattern" type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="hasAllRolesType">
+    	<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    		<xs:element name="role" type="sec:roleType"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="hasAnyRoleType">
+    	<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    		<xs:element name="role" type="sec:roleType"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="hasNoRoleType">
+    	<xs:sequence minOccurs="1" maxOccurs="unbounded">
+    		<xs:element name="role" type="sec:roleType"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="roleType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="authenticatedType">
+    	<xs:restriction base="xs:boolean"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="defaultURLType">
+    	<xs:restriction base="xs:string"/>
+    </xs:simpleType>
+</xs:schema>

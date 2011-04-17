@@ -1,0 +1,53 @@
+<ui:composition template="/xhtml/templates/main.xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:h="http://java.sun.com/jsf/html">	
+		<ui:param name="pageTitle" value="#{bundle_home['home.title']}: #{searchBean.tagName}" />
+		
+		<ui:define name="content">
+			<ui:repeat var="article" value="#{searchBean.articles}">
+				<div class="post">
+					<div class="header">
+						<h3>#{article.title}</h3>
+						<div class="date">
+						#{bundle_home['home.article.by']} <strong><h:outputText value="#{article.user.loginName}"/></strong> - 
+							<h:outputText value="#{article.date}">
+								<f:convertDateTime pattern="yyyy/MM/dd" />				
+							</h:outputText>							
+						</div>
+					</div>
+					<div class="tags">
+						<ui:repeat var="tag" value="#{article.tags}">
+							<span class="tag">
+								<h:link outcome="pretty:tag" value="#{tag.name}">
+									<f:param name="tagName" value="#{tag.name}" />
+								</h:link>
+							</span>
+						</ui:repeat>
+					</div>
+					<div class="content">
+						<h:outputText escape="false" value="#{article.resumeDataValue}"/>
+					</div>			
+					<div class="footer">
+						<ul>
+							<!--<li class="printerfriendly"><a href="#">#{bundle_home['home.article.printerFriendly']}</a></li>-->
+							<li class="comments">
+								<h:link outcome="pretty:article" value="#{bundle_home['home.article.comments']} (#{article.commentCount})">
+									<f:param name="name" value="#{article.name}" />
+									<f:param name="focusComments" value="true" />
+								</h:link>
+							</li>
+							<li class="readmore">
+								<h:link outcome="pretty:article" value="#{bundle_home['home.article.readMore']}">
+									<f:param name="name" value="#{article.name}" />
+									<f:param name="focusComments" value="false" />
+								</h:link>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</ui:repeat>
+		</ui:define>
+</ui:composition>
